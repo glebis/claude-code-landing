@@ -1,0 +1,5 @@
+- [ ] Stripe links
+- [ ] What is Claude Code?
+- [ ] TG Post
+- [ ] Телеграм-ссылка
+- [ ] 
