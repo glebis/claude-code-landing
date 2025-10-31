@@ -67,6 +67,18 @@
             color: var(--text-primary);
             overflow: hidden;
             box-shadow: 0 40px 65px rgba(5, 8, 17, 0.35);
+            width: 600px;
+            max-width: 600px;
+            min-width: 600px;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .terminal-shell {
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+            }
         }
 
         .terminal-shell__header {
@@ -100,6 +112,9 @@
             padding: clamp(1.5rem, 4.5vw, 2.25rem);
             position: relative;
             min-height: clamp(16rem, 38vw, 21rem);
+            overflow-x: auto;
+            overflow-y: auto;
+            max-height: 600px;
         }
 
         .terminal-thinking {
@@ -212,97 +227,102 @@
 
 
         <main class="main-content">
-            <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem; align-items: start; max-width: 1400px; margin: 0 auto;">
-                <div class="content-section" id="content-section" style="min-width: 0;">
-                    <h2 class="hero-text" id="hero-text">
-                        <span class="hero-word">Claude Code</span><br>
-                        <span class="hero-word"><em>для</em></span><br>
-                        <span class="hero-word highlight" data-skip-letters>
-                            <span class="highlight-rotator">продактов</span><span class="highlight-cursor" aria-hidden="true">▋</span>
-                        </span><br>
+            <div class="content-section" id="content-section">
+                <h2 class="hero-text" id="hero-text">
+                    <span class="hero-word">Claude Code</span><br>
+                    <span class="hero-word"><em>для</em></span><br>
+                    <span class="hero-word highlight" data-skip-letters>
+                        <span class="highlight-rotator">продактов</span><span class="highlight-cursor" aria-hidden="true">▋</span>
+                    </span><br>
 
-                    </h2>
+                </h2>
 
-                    <p class="description">
+                <p class="description">
 
-                    </p>
+                </p>
 
-                    <a href="#intro" class="cta-button">Что за процесс →</a>
-                </div>
-
-                <div class="terminal-shell" data-terminal-shell style="min-width: 0; width: 100%; max-width: 700px;">
-                    <div class="terminal-shell__header" aria-hidden="true">
-                        <span class="terminal-shell__dot"></span>
-                        <span class="terminal-shell__dot"></span>
-                        <span class="terminal-shell__dot"></span>
-                    </div>
-                    <div class="terminal-shell__body">
-                        <div class="terminal-thinking" data-terminal-thinking>
-                            <span class="terminal-thinking__icon" aria-hidden="true">✻</span>
-                            <span class="terminal-thinking__text">Связываю…</span>
-                        </div>
-
-                        <div class="terminal-log" data-terminal-log hidden>
-                            <article class="terminal-entry">
-                                <div class="terminal-command">
-                                    <span aria-hidden="true">&gt;</span>
-                                    <span>I'm new to this codebase. Can you explain it to me?</span>
-                                </div>
-                                <div class="terminal-output">
-                                    <p>⏺ I'll analyze the project structure and give you a high-level overview.</p>
-                                    <p>⏺ Analyze(what: "Excalidraw codebase structure, main components, and key features.")</p>
-                                    <p><strong>Purpose</strong><br>
-                                        – Создаёт бесконечную онлайн-доску для эскизов<br>
-                                        – Хранит и шифрует совместную работу<br>
-                                        – Поддерживает PWA и оффлайн-режим
-                                    </p>
-                                    <p><strong>Архитектура</strong><br>
-                                        1. packages/excalidraw — React-компонента с rough.js<br>
-                                        2. excalidraw-app — оболочка с коллаборацией, экспортами и локальным хранилищем<br>
-                                        3. packages/common, element, utils — общие типы, математика и хелперы<br>
-                                        4. examples/ — шаблоны интеграции в Next.js и браузер
-                                    </p>
-                                    <p><strong>Стек</strong><br>
-                                        React · TypeScript · Firebase · Jotai · Vite · IndexedDB</p>
-                                </div>
-                            </article>
-
-                            <article class="terminal-entry">
-                                <div class="terminal-command">
-                                    <span aria-hidden="true">&gt;</span>
-                                    <span>Refactor the permission request components to share common UI elements and behavior.</span>
-                                </div>
-                                <div class="terminal-output">
-                                    <p>⏺ Search(папки: "src/components/permissions/*PermissionRequest.tsx")</p>
-                                    <p>⏺ Создаю BasePermissionRequest: общие стили, обработка ESC и цифровых хоткеев.</p>
-                                    <p>⏺ Update(src/components/permissions/BasePermissionRequest.tsx)</p>
-                                    <p>⏺ Обновляю FallbackPermissionRequest и WebFetchPermissionRequest, подключаю базовый компонент, удаляю дублирование.</p>
-                                    <p>⏺ test/e2e/mcp.test.tsx — правлю селекторы под новый UI, прогоняю npm run test и lint — всё зелёное.</p>
-                                </div>
-                            </article>
-
-                            <article class="terminal-entry">
-                                <div class="terminal-command">
-                                    <span aria-hidden="true">&gt;</span>
-                                    <span>Create an interactive tool that shoots out emojis using real-world physics.</span>
-                                </div>
-                                <div class="terminal-output">
-                                    <p>⏺ Создаю HTML-артефакт с Canvas API и Matter.js для физики.</p>
-                                    <p>⏺ Write(emoji-physics.html)</p>
-                                    <p>✓ Готово: кликай, выбирай эмодзи, наблюдай за реалистичной гравитацией и коллизиями.</p>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                </div>
+                <a href="#intro" class="cta-button">Что за процесс →</a>
             </div>
         </main>
         </section>
+        <main class="" id="why-claude" style="margin-bottom: 4rem">
+            <section class="three-column-section" id="value-proposition-section">
+                <div class="column">
+                    <h2 class="column-title">
+                     Что такое Claude Code
+                    </h2>
+                </div>
+                <div class="column">
+                    <p>Claude Code — универсальный ИИ-агент, использующий топовую большую языковую модель Anthropic Claude Sonnet 4.5 для работы с файлами на вашем компьютере или в облаке. Читает и пишет файлы, выполняет действия, пишет, исправляет и запускает код, помогает обрабатывать данные, создавать презентации и графику, пользоваться браузером — всё, что вы можете делать в компьютере.</p>
+                </div>
+                <div class="column">
+                    <div class="terminal-shell" data-terminal-shell>
+                        <div class="terminal-shell__header" aria-hidden="true">
+                            <span class="terminal-shell__dot"></span>
+                            <span class="terminal-shell__dot"></span>
+                            <span class="terminal-shell__dot"></span>
+                        </div>
+                        <div class="terminal-shell__body">
+                            <div class="terminal-thinking" data-terminal-thinking>
+                                <span class="terminal-thinking__icon" aria-hidden="true">✻</span>
+                                <span class="terminal-thinking__text">Связываю…</span>
+                            </div>
 
+                            <div class="terminal-log" data-terminal-log hidden>
+                                <article class="terminal-entry">
+                                    <div class="terminal-command">
+                                        <span aria-hidden="true">&gt;</span>
+                                        <span>I'm new to this codebase. Can you explain it to me?</span>
+                                    </div>
+                                    <div class="terminal-output">
+                                        <p>⏺ I'll analyze the project structure and give you a high-level overview.</p>
+                                        <p>⏺ Analyze(what: "Excalidraw codebase structure, main components, and key features.")</p>
+                                        <p><strong>Purpose</strong><br>
+                                            – Создаёт бесконечную онлайн-доску для эскизов<br>
+                                            – Хранит и шифрует совместную работу<br>
+                                            – Поддерживает PWA и оффлайн-режим
+                                        </p>
+                                        <p><strong>Архитектура</strong><br>
+                                            1. packages/excalidraw — React-компонента с rough.js<br>
+                                            2. excalidraw-app — оболочка с коллаборацией, экспортами и локальным хранилищем<br>
+                                            3. packages/common, element, utils — общие типы, математика и хелперы<br>
+                                            4. examples/ — шаблоны интеграции в Next.js и браузер
+                                        </p>
+                                        <p><strong>Стек</strong><br>
+                                            React · TypeScript · Firebase · Jotai · Vite · IndexedDB</p>
+                                    </div>
+                                </article>
+
+                                <article class="terminal-entry">
+                                    <div class="terminal-command">
+                                        <span aria-hidden="true">&gt;</span>
+                                        <span>Refactor the permission request components to share common UI elements and behavior.</span>
+                                    </div>
+                                    <div class="terminal-output">
+                                                                                <p>⏺ Создаю BasePermissionRequest: общие стили, обработка ESC и цифровых хоткеев.</p>
+                                        <p>⏺ Обновляю FallbackPermissionRequest и WebFetchPermissionRequest, подключаю базовый компонент, удаляю дублирование.</p>
+                                        <p>⏺ test/e2e/mcp.test.tsx — правлю селекторы под новый UI, прогоняю npm run test и lint — всё зелёное.</p>
+                                    </div>
+                                </article>
+
+                                <article class="terminal-entry">
+                                    
+                                    <div class="terminal-output">
+                                        <p>⏺ Создаю HTML-артефакт с Canvas API и Matter.js для физики.</p>
+                                        <p>⏺ Write(emoji-physics.html)</p>
+                                        <p>✓ Готово: кликай, выбирай эмодзи, наблюдай за реалистичной гравитацией и коллизиями.</p>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
         <main class="" id="intro" style="margin-bottom: 4rem">
             <div class="content-section" style="font-size: 2.2rem; line-height: 1.5; width: 100%;">
                 <span class="highlight-bg">5 недель</span> совместного исследования и практики работы с одним из самых эффективных ИИ-агентов. <i class="middot">⏺</i> 
-                Работает со документами: организуем, наполняем, обрабатываем <i class="middot">⏺</i>
+                Работает со документами: организуем, наполняем, обрабатываем, объединяем, конвертируем <i class="middot">⏺</i>
                 Упаковываем повторяющиеся действия в <em>Claude Skills</em> <i class="middot">⏺</i>
                   Создаём интерактивные ии-фичи в <em>Claude Artefact</em>  <i class="middot">⏺</i> 
 <i class="middot">⏺</i> Создаём функциональные прототипы приложений <i class="middot">⏺</i>
@@ -358,7 +378,7 @@
                 <ul>
                     <li><strong class="highlight">Для предпринимателей.</strong> Если вы ищете способы оптимизировать существующий бизнес, найти новые ниши и получить опыт регулярной структурированной работы с генеративным ИИ и агентами. </li>
                     <li><strong class="highlight">Для мультипотенциалов.</strong> Если вам всегда тесно в рамках одной профессии, вы развиваете несколько профессиональных направлений, ведёте блоги и&nbsp;рассылки на самые разные темы, а остановиться на чём-то одном просто невозможно. </li>     
-                    <li><strong class="highlight">Для профессионалов.</strong> Вы продакт, дизайнер или арт-директор, исследователь, CPO или CTO, и хотите через практику получить представление о том, на что способны ии-агенты уже сейчас, и предполодить, как они будут работать через 5 лет — и как тогда может выглядеть ваша профессия и будущее компаний и индустрий, в которых вы работаете.</li>
+                    <li><strong class="highlight">Для профессионалов.</strong> Вы продакт, дизайнер или арт-директор, исследователь, CPO или CTO, и хотите через практику получить представление о том, на что способны ии-агенты уже сейчас, и предположить, как они будут работать через 5 лет — и как тогда может выглядеть ваша профессия и будущее компаний и индустрий, в которых вы работаете.</li>
 
                         
                 </ul>
