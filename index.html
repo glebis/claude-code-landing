@@ -126,6 +126,12 @@
             padding-bottom: 0.5rem;
         }
 
+        .terminal-tab-title {
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+        }
+
         .terminal-tab {
             padding: 0.5rem 1rem;
             background: transparent;
@@ -198,6 +204,36 @@
             font-size: clamp(0.86rem, 2.2vw, 0.98rem);
         }
 
+        .terminal-output > * {
+            opacity: 0;
+            animation: fadeInLine 0.3s ease-out forwards;
+        }
+
+        @keyframes fadeInLine {
+            from {
+                opacity: 0;
+                transform: translateY(-4px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .terminal-command {
+            opacity: 0;
+            animation: fadeInLine 0.2s ease-out forwards;
+        }
+
+        .terminal-output > *:nth-child(1) { animation-delay: 0.1s; }
+        .terminal-output > *:nth-child(2) { animation-delay: 0.25s; }
+        .terminal-output > *:nth-child(3) { animation-delay: 0.4s; }
+        .terminal-output > *:nth-child(4) { animation-delay: 0.55s; }
+        .terminal-output > *:nth-child(5) { animation-delay: 0.7s; }
+        .terminal-output > *:nth-child(6) { animation-delay: 0.85s; }
+        .terminal-output > *:nth-child(7) { animation-delay: 1s; }
+        .terminal-output > *:nth-child(8) { animation-delay: 1.15s; }
+
         .terminal-output p + p {
             margin-top: 0.8rem;
         }
@@ -246,9 +282,9 @@
             </div>
         </div>
         <div class="telegram-button-container">
-            <a class="telegram-button" href="https://t.me/m/Huow25QQZmYy" target="_blank" rel="noopener noreferrer" aria-label="Написать в телеграм (@glebkalinin)">
+            <a class="telegram-button" href="https://t.me/m/Kr7m7YWyZDZi" target="_blank" rel="noopener noreferrer" aria-label="Написать в телеграм (@glebkalinin)">
                 <svg class="telegram-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-                    <path d="M9.964 15.568l-.246 3.463c.352 0 .505-.151.688-.333л1.651-1.588 3.418 2.51c.626.347 1.073.165 1.244-.58л2.254-10.556h.001c.2-.932-.337-1.296-.95-1.07L3.23 11.07c-.912.353-.898.861-.155 1.09л3.91 1.219 9.084-5.73c.427-.279.816-.125.496.154" fill="currentColor"/>
+                    <path d="M9.964 15.568l-.246 3.463c.352 0 .505-.151.688-.333l1.651-1.588 3.418 2.51c.626.347 1.073.165 1.244-.58l2.254-10.556h.001c.2-.932-.337-1.296-.95-1.07L3.23 11.07c-.912.353-.898.861-.155 1.09l3.91 1.219 9.084-5.73c.427-.279.816-.125.496.154" fill="currentColor"/>
                 </svg>
                 <span>Написать в телеграм</span>
             </a>
@@ -281,7 +317,7 @@
 
                 </p>
 
-                <a href="#intro" class="cta-button">Что за процесс →</a>
+                <a href="#value-proposition-section" class="cta-button">Enter <span aria-hidden="true" style="font-size:1.1em;vertical-align:-0.08em;">⏎</span></a>
             </div>
         </main>
         </section>
@@ -298,14 +334,15 @@
                 </div>
 <div class="column">
                     <div class="terminal-tabs" data-terminal-tabs>
-                        <button class="terminal-tab is-active" data-tab="developers">разработчики</button>
-                        <button class="terminal-tab" data-tab="products">продакты</button>
+                        <span class="terminal-tab-title">Как Claude применяют</span>
+                        <button class="terminal-tab is-active" data-tab="products">продакты</button>
                         <button class="terminal-tab" data-tab="designers">дизайнеры</button>
                         <button class="terminal-tab" data-tab="managers">менеджеры</button>
                         <button class="terminal-tab" data-tab="testers">тестировщики</button>
                         <button class="terminal-tab" data-tab="lawyers">юристы</button>
                         <button class="terminal-tab" data-tab="analysts">аналитики</button>
                         <button class="terminal-tab" data-tab="marketers">маркетологи</button>
+                        <button class="terminal-tab" data-tab="developers">разработчики</button>
                     </div>
 
                     <div class="terminal-shell" data-terminal-shell>
@@ -321,35 +358,23 @@
                             </div>
 
                             <!-- Developers content -->
-                            <div class="terminal-log terminal-content is-active" data-terminal-log data-content="developers" hidden>
+                            <div class="terminal-log terminal-content" data-content="developers" hidden>
                                 <article class="terminal-entry">
                                     <div class="terminal-command">
                                         <span aria-hidden="true">&gt;</span>
-                                        <span>I'm new to this codebase. Can you explain it to me?</span>
+                                        <span>Изучать кодовую базу</span>
                                     </div>
                                     <div class="terminal-output">
-                                        <p>⏺ I'll analyze the project structure and give you a high-level overview.</p>
-                                        <p>⏺ Analyze(what: "Excalidraw codebase structure, main components, and key features.")</p>
-                                        <p><strong>Purpose</strong><br>
-                                            – Создаёт бесконечную онлайн-доску для эскизов<br>
-                                            – Хранит и шифрует совместную работу<br>
-                                            – Поддерживает PWA и оффлайн-режим
-                                        </p>
-                                        <p><strong>Архитектура</strong><br>
-                                            1. packages/excalidraw — React-компонента с rough.js<br>
-                                            2. excalidraw-app — оболочка с коллаборацией, экспортами и локальным хранилищем<br>
-                                            3. packages/common, element, utils — общие типы, математика и хелперы<br>
-                                            4. examples/ — шаблоны интеграции в Next.js и браузер
-                                        </p>
-                                        <p><strong>Стек</strong><br>
-                                            React · TypeScript · Firebase · Jotai · Vite · IndexedDB</p>
+                                        <p>⏺ Клод проанализует кодовую базу и даст общий обзор.</p>
+                                    
+                                        
                                     </div>
                                 </article>
 
                                 <article class="terminal-entry">
                                     <div class="terminal-command">
                                         <span aria-hidden="true">&gt;</span>
-                                        <span>Refactor the permission request components to share common UI elements and behavior.</span>
+                                        <span>Рекфакторинг компонентов.</span>
                                     </div>
                                     <div class="terminal-output">
                                         <p>⏺ Создаю BasePermissionRequest: общие стили, обработка ESC и цифровых хоткеев.</p>
@@ -368,7 +393,7 @@
                             </div>
 
                             <!-- Products content -->
-                            <div class="terminal-log terminal-content" data-content="products" hidden>
+                            <div class="terminal-log terminal-content is-active" data-terminal-log data-content="products" hidden>
                                 <article class="terminal-entry">
                                     <div class="terminal-command">
                                         <span aria-hidden="true">&gt;</span>
@@ -594,7 +619,7 @@
         <main class="" id="intro" style="margin-bottom: 4rem">
             <div class="content-section" style="font-size: 2.2rem; line-height: 1.5; width: 100%;">
                 <span class="highlight-bg">5 недель</span> совместного исследования и практики работы с одним из самых эффективных ИИ-агентов. <i class="middot">⏺</i> 
-                Работает со документами: организуем, наполняем, обрабатываем, объединяем, конвертируем <i class="middot">⏺</i>
+                Работа со документами: организуем, наполняем, обрабатываем, объединяем, конвертируем <i class="middot">⏺</i>
                 Упаковываем повторяющиеся действия в <em>Claude Skills</em> <i class="middot">⏺</i>
                   Создаём интерактивные ии-фичи в <em>Claude Artefact</em>  <i class="middot">⏺</i> 
 <i class="middot">⏺</i> Создаём функциональные прототипы приложений <i class="middot">⏺</i>
@@ -616,24 +641,7 @@
 
         <section class="value-proposition" id="value-proposition">
 
-            <section class="three-column-section" id="value-proposition-section">
-                <div class="column">
-                    <h2 class="column-title">
-                        <em>Инструменты меняются.</em> Привычка мыслить, формулировать и&nbsp;строить остаётся
-                    </h2>
-                </div>
-                <div class="column">
-                    <p class="column-text">
-                        На лаборатории мы не просто погружаемся в изучение инструментов: они быстро устареют. Чтобы жить в мире с агентами, <em>нанимать их</em> и получать результаты, нам нужно учиться мыслить <em>системно</em>.
-                    </p>
-                </div>
-                <div class="column">
-                    <p class="column-text">
-                        Мы будет учиться формулировать задачи так, чтобы технология работала на вас. Описывать задачи, детализировать контекст, формулировать требования, мыслить структурами и алгоритмами. Спецификация, написанная на естественном языке&nbsp;— то, что превращает идею в&nbsp;реальный продукт.
-                    </p>
-                </div>
-            
-        </section>
+
 
         <!-- For Whom Section -->
         <section class="three-column-section" id="for-whom-section">
@@ -641,11 +649,14 @@
                 <h3 class="column-title">
                     Для <span class="highlight">кого</span>
                 </h3>
+                <p class="column-text">На мои лаборатории приходят предприниматели, учёные, разработчики, генералисты и специалисты. Люди, готовые инвестировать время, внимание и усилия в развитие навыков будущего.
+                </p> 
+                <p>Большинство из участников — не разработчики, а многие не имеют отношения к IT (<em>но базовый уровень владения компьютером, браузером, текстовыми редакторами всё же потребуется</em>).</p>
             </div>
 
             <div class="column">
-                <!-- <p class="column-text">На мои лаборатории приходят предприниматели, учёные, разработчики, генералисты и специалисты. Люди, готовые инвестировать время, внимание и усилия в развитие навыков будущего.
-                </p> -->
+                
+        
 
                 <ul>
                     <li><strong class="highlight">Для предпринимателей.</strong> Если вы ищете способы оптимизировать существующий бизнес, найти новые ниши и получить опыт регулярной структурированной работы с генеративным ИИ и агентами. </li>
@@ -688,13 +699,13 @@
 
             <div class="column">
                 <p class="column-text">
-                    На лабораториях я рекомендую практический подход, который удобнее всего реализовать через собственный проект. Для кого-то проектом может стать прототип бизнес-процесса, автоматизация или агент. Кто-то ограничится исследованием: технологического стека, кейсов, идей и потребностей, ограничений и ресурсов.</p>
+                    На лабораториях я рекомендую практический подход, который удобнее всего реализовать через собственный проект. Для кого-то проектом может стать прототип бизнес-процесса, автоматизация или полноценный ИИ-агент. Кто-то ограничится исследованием: технологического стека, кейсов, идей и потребностей, ограничений и ресурсов.</p>
 
             </div>
 
             <div class="column">
                 <p class="column-text">
-                    На лабораториях я рекомендую практический подход, который удобнее всего реализовать через собственный проект. Для кого-то проектом может стать прототип бизнес-процесса, автоматизация или агент. Кто-то ограничится исследованием: технологического стека, кейсов, идей и потребностей, ограничений и ресурсов.</p>
+                    Большое количество кейсов и реальных примеров решения задач повседневных задач помогут вам лучше понять, как ИИ-агенты могут быть полезны в вашем бизнесе, личной жизни и интересах.</p>
 
             </div>
 
@@ -711,7 +722,7 @@
 
             <div class="column">
                 <p class="column-text">
-                    Практика. 
+                    Все занятия лаборатории построены на практике. Все презентации (сделанные в Claude Code!) мы сопроваждаем живыми демо, а участникам предлагаем работать в Клод коде параллельно с нами.
                 </p>
 
             </div>
@@ -733,16 +744,16 @@
                     «Я 20 лет проработал в IT, и большую часть времени что-то строил и делал руками. Я мультипотенциал — мне неинтересно заниматься чем-то одним, у меня несколько профессий, и постоянно появляются новые комбинации старых. </p>  
                     
                     <p class="description">
-                    Я быстро понял, что агенты позволят нам пользоваться всеми уже существующими технологиями, а также создавать новые налету. С выходом ChatGPT я использую его и другие модели для создания своих инструментов: пишу код, автоматизации, экспериментирую с интерфейсами — наработками делюсь в канале <a href="https://t.me/m/Huow25QQZmYy">Tool Building Ape</a> в Телеграме и&nbsp;на&nbsp;своём <a href="https://github.com/glebis">гитхабе</a>.»
+                    ИИ-агенты позволят нам пользоваться всеми уже существующими технологиями — и создавать свои налету. С выходом ChatGPT я использую его и другие модели для создания своих инструментов: пишу код, автоматизации, экспериментирую с интерфейсами — наработками делюсь в канале <a href="https://t.me/m/Huow25QQZmYy">Tool Building Ape</a> в Телеграме и&nbsp;на&nbsp;своём <a href="https://github.com/glebis">гитхабе</a>.»
                 </p>
 
               
 
                 
 
-                <p class="description">Я веду лабораторию по изучению искусственного интеллекта и использованию агентов для создания экономически значимой работы с 2023 года, через мои лаборатории прошло около 300 человек.</p>
+                <p class="description">Я веду лабораторию по изучению искусственного интеллекта и использованию агентов для создания экономически значимой работы с 2022 года, через мои лаборатории по управлению знаниями и работе с ИИ-агентами прошло около 350 человек.</p>
 
-                <p class="description" style="font-size: 90%;">Где я работал: CPO Ozon.travel, Chief of content Островок, Ценципер. Основал AI Mindset.</p>
+                <p class="description" style="font-size: 90%;">Где я работал: CPO Ozon.travel, Chief of content Островок, Ценципер и др. </p>
 
                 
                 
@@ -772,7 +783,7 @@
             <div class="column"> 
                 <p class="column-text"><strong>Hard skills:</strong></p>
                 <ul>
-                    <li>Как работать с современными большими языковыми моделями (GPT-5, Claude, Gemini, открытми GPTOSS) и ИИ-агентами (GPT-5 Agent, Claude code, Codex, Amp, Windsurf, Cursor, Devin, Manus и др.)</li>
+                    <li>Как работать с современными большими языковыми моделями и ИИ-агентами: Claude code, Codex, Windsurf, Cursor</li>
                     <li>Промтинг ризонинг-моделей и агентов</li>
                     <li>Контекст-инженерия и работа с данным</li>
                     <li>Вайб-кодинг и создание полноценных прототипов ии-приложений с помощью ИИ-агентов</li>
@@ -803,7 +814,7 @@
 
             <div class="column">
                 <p class="column-text">
-                    На воркшопах, мы не только планируем, изучаем технологии, но и задаём глобальные вопросы о будущем. Как будет выглядеть интернет, коммуникация, что будет значить доверие, когда миллионы автономных агентов будут безостановочно майнить интернет в поисках возможностей и уязвимостей?
+                    На воркшопах мы не только изучаем технологии, но и задаём глобальные вопросы о будущем. Как будет выглядеть интернет, коммуникация, что будет значить доверие, когда миллионы автономных агентов будут безостановочно майнить интернет в поисках возможностей и уязвимостей?
                 </p>
 
 
@@ -828,12 +839,18 @@
         <section class="features-grid">
 
 
+                        <div class="feature-card" id="feature-1">
+                <h3 class="feature-title">Терминал</h3>
+                <p class="feature-description">
+                    Claude Code работает в командной строке, и мы разбирёмся с основыми работы в терминале. Mac/Window  Terminal, iTerm, Warp и другие.
+                </p>
+            </div>
 
 
             <div class="feature-card" id="feature-1">
                 <h3 class="feature-title">Claude code</h3>
                 <p class="feature-description">
-                    Один из самых популярных ии-агентов для разработки софта, настройки программ, работы с данными от компании Anthropic. Работает локально и в облаке.
+                    Один из самых популярных ии-агентов, главный герой лаборатории.
                 </p>
             </div>
 
@@ -847,21 +864,21 @@
             <div class="feature-card" id="feature-1">
                 <h3 class="feature-title">Cursor</h3>
                 <p class="feature-description">
-                    Самый популярный ИИ-агент в форме IDE
+                    Самый популярный ИИ-агент в форме IDE. Может работать совместно с Claude Code.
                 </p>
             </div>              
 
             <div class="feature-card" id="feature-1">
                 <h3 class="feature-title">Windsurf</h3>
                 <p class="feature-description">
-                    Бюджетный ИИ-агент в форме IDE, пригодный для решения задач, не связанных с разработкой ПО (генерация презентаций, работа с базами знаний)
+                    Бюджетный ИИ-агент в форме IDE, пригодный для решения задач. Поддерживает работу с Claude code.
                 </p>
             </div>            
 
              <div class="feature-card" id="feature-4">
-                <h3 class="feature-title">Goose</h3>
+                <h3 class="feature-title">Github</h3>
                 <p class="feature-description">
-                    Незасимый general-агент с графическим интерфейсом от Джека Дорси (экс-Твиттер). Умеет работать на вашем компьюетере с открытыми и локальными моделями.
+                   Система контроля версий, которая помогает нам сохранять и отслеживать изменения в коде, а также публиковать его в вебе.
                 </p>
             </div>
             
@@ -873,12 +890,14 @@
             </div>
 
             <div class="feature-card" id="feature-5">
-                <h3 class="feature-title">GPT Agent</h3>
+                <h3 class="feature-title">Obsdiain</h3>
                 <p class="feature-description">
-                    Агент OpenAI для сбора информации, исследований, кодинга, подготовки презентаций и мышления, работающий в облаке.
+                    Локальный текстовый редактор, с которым удобно работать с помощью Claude Code.
                 </p>
             </div>            
 
+
+            
             <div class="feature-card" id="feature-5">
                 <h3 class="feature-title"><em>…и другие</em></h3>
                 <p class="feature-description">
@@ -886,6 +905,26 @@
                 </p>
             </div>
         </section>
+
+            <section class="three-column-section" id="value-proposition-section">
+                <div class="column">
+                    <h2 class="column-title">
+                        <em>Инструменты меняются.</em> Привычка мыслить, формулировать и&nbsp;строить остаётся
+                    </h2>
+                </div>
+                <div class="column">
+                    <p class="column-text">
+                        На лаборатории мы не просто погружаемся в изучение инструментов: они быстро устареют. Чтобы жить в мире с агентами, <em>нанимать их</em> и получать результаты, нам нужно учиться мыслить <em>системно</em>.
+                    </p>
+                </div>
+                <div class="column">
+                    <p class="column-text">
+                        Мы будет учиться формулировать задачи так, чтобы технология работала на вас. Описывать задачи, детализировать контекст, формулировать требования, мыслить структурами и алгоритмами. Спецификация, написанная на естественном языке&nbsp;— то, что превращает идею в&nbsp;реальный продукт.
+                    </p>
+                </div>
+            
+        </section>
+
 
         <!-- <div class="section-header animated">
             <span class="highlight">/skills</span>
@@ -932,24 +971,23 @@
                 
             </div>
             <div class="column">
-                <p><em>5 недель</em> — достаточно времени, чтобы развить насмотренность и&nbsp;набрать практики в&nbsp;работе с&nbsp;агентами.</p>
-                <p>Каждую неделю кейсы, возможность для&nbsp;совместной практики, ответы на&nbsp;вопросы и&nbsp;ии-инструменты, помогающие в&nbsp;учёбе и&nbsp;выборе фокуса</p>
+                <p><em>5 недель</em> — достаточно времени, чтобы развить насмотренность и&nbsp;набрать практики в&nbsp;работе с&nbsp;агентами, понять, что они могут, а чего нет, и автоматизировать рутинные задачи с помощью Claude code и Claude Skills.</p>
+                <p>Каждую неделю смотрим кейсы, практикуем совместно, отвечаем на&nbsp;вопросы, обсуждаем ИИ-инструменты, помогающие в&nbsp;учёбе и&nbsp;выборе фокуса</p>
             </div>
             <div class="column"></div>
             <div class="column">
-                <p class="description"><strong class="highlight">Среда</strong> 09:00CET*.  Коворкинг. Самостоятельная работа над своими проектами, выполнение заданий, изучение материалов лаборатории. * <em>Возможны дополнительные слоты в другое время.</em></p>
-                <p class="description"><strong class="highlight">Четверги</strong> 18:00CET. Практически-теоретические занятия, основная встреча для всех. Рассматриваем кейсы и их реализацию с помощью ИИ-агентов: локальных, облачных, гибридных.</p>
+               <!-- <p class="description"><strong class="highlight">Среда</strong> 09:00CET*.  Коворкинг. Самостоятельная работа над своими проектами, выполнение заданий, изучение материалов лаборатории. * <em>Возможны дополнительные слоты в другое время.</em></p> -->
+                <p class="description"><strong class="highlight">Вторники</strong> 18:00CET/20:00MSK. Практически-теоретические занятия, основная встреча. Рассматриваем кейсы и их реализацию с помощью Claude code.</p>
             </div>
             <div class="column">
-                <p class="description"><strong class="highlight">Субботы</strong> 10:00CET (с перерывами). Встречи по постановке задач, вопросы и ответы, техподдержка.</p>
-                <p class="description"><strong class="highlight">Воскресенья</strong> 10:00CET. Мастер-майнды <em>(только на полном и командном тарифах)</em>.</p>
+                <p class="description"><strong class="highlight">Субботы</strong> 12:00CET/14:00MSK. Совместные 2-часовые лайв-кодинг сессии. Решаем реальные задачи с помощью Claude code.</p>
             </div>
         </section>
 
 
         <section class="comparison-section" id="schedule">
             <div class="double-diamond-content">
-                <iframe src="https://calendar.google.com/calendar/embed?src=48144699ca422ec84b2f670bea6409cc73463f3b3a448ced83d3d174dce4a939%40group.calendar.google.com&ctz=Europe%2FBerlin" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+                <iframe src="https://calendar.google.com/calendar/embed?src=48144699ca422ec84b2f670bea6409cc73463f3b3a448ced83d3d174dce4a939%40group.calendar.google.com&ctz=Europe%2FBerlin" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
 
 
 
@@ -1026,13 +1064,13 @@
 
             <div class="pricing-grid">
                 <div class="pricing-card" id="pricing-card-1">
-                    <h3 class="plan-name">Наблюдатель</h3>
+                    <h3 class="plan-name">Участник</h3>
                     <p class="plan-description">Если важна только теория и не нужна поддержка</p>
                     <div class="plan-price">
                         <span class="currency">€</span><span class="price" data-eur="400" data-usd="435" data-rub="40000">400</span><span class="period"></span>
                     </div>
                     <ul class="plan-features">
-                        <li>Доступ к записям всех гайдов по использованию агентов для задач работы с информацией и данными, генерации контента в различных форматах, работе с MCP, публикации приложений в вебе</li>
+                        <li>Доступ к записям всех встреч и гайдов по использованию Claude code для задач работы с информацией и данными, генерации контента в различных форматах, работе с MCP, публикации приложений в вебе</li>
                         <li>Доступ к Custom GPT, помогающий сформулировать проблему и проект, протестировать идеи, изучить варианты технологий для реализации</li>
                         <li>Доступ к NotebookLM с базой документации, технологий и подходов</li>
                         <li>Доступ к материалам: видеоуроки, презентации, промты, примеры проектов, ссылки на внешние ресурсы и гайды (на английском языке)</li>
@@ -1042,14 +1080,15 @@
                 </div>
 
                 <div class="pricing-card featured" id="pricing-card-2">
-                    <h3 class="plan-name">Участник</h3>
+                    <h3 class="plan-name">Индивидуальный</h3>
                     <p class="plan-description">Полное погружение</p>
                     <div class="plan-price">
                         <span class="currency">€</span><span class="price" data-eur="1000" data-usd="1090" data-rub="100000">1000</span><span class="period"></span>
                     </div>
                     <ul class="plan-features">
-                        <li>Участие в мастер-майндах и групповых сессиях дизайн-мышления</li>
-                        <li>Чат технической поддержки</li>
+                        <li>Всё, что в основном тарифе</li>
+                        <li>3 индивидуальных консультации по 45 минут</li>
+                        <li>Индивидуальная поддержка в чате — ответы в течение рабочего дня</li>
                         <li>Сессии вопросов и ответов</li>
                         <li>Доступ к материалам: видеоуроки, презентации, промты, примеры проектов, ссылки на внешние ресурсы и гайды (на английском языке)</li>
                         <li>Чат с экспертами и другими участниками</li>
@@ -1059,22 +1098,22 @@
 
                 <div class="pricing-card" id="pricing-card-3">
                     <h3 class="plan-name">Командный</h3>
-                    <p class="plan-description">Для группы до 5 человек</p>
+                    <p class="plan-description">Для группы до 7 человек</p>
                     <div class="plan-price">
                         <span class="currency">€</span><span class="price" data-eur="2500" data-usd="2700" data-rub="245000">2500</span><span class="period"></span>
                     </div>
                     <ul class="plan-features">
                         <li>Отдельный чат с вашей группой</li>
-                        <li>4 отдельных 45-минутных консультации для вашей команды</li>
+                        <li>4 отдельных 60-минутных консультации / live coding сессии для вашей команды</li>
                         <li>Помощь в постановке задач, подборе технологий, проведении ии-исследований</li>
                         <li>Доступ к материалам: видеоуроки, презентации, ссылки</li>
                         <li>Команды, участвовашие в моих лабораториях,  окупают инвестиции времени и денег в технологии в течение 1 месяца</li>
                     </ul>
-                    <a href="https://t.me/m/Huow25QQZmYy" class="plan-button secondary">Написать Глебу в Телеграм</a>
+                    <a href="https://t.me/m/tLQ29xVWZGVi" class="plan-button secondary">Написать Глебу в Телеграм</a>
                 </div>
             </div>
 
-            <p class="description">Оплата возможна в рублях (счёт и акт выставит самозанятый в РФ, предоставим чек), через Paypal,  по IBAN в немецком банке, через Stripe (по ссылкам выше), через USDT и другие криптовалюты. <br> Для компаний выставим инвойс от европейского ИП (selbständig) с оплатой по IBAN. Чтобы оплатить от компании, пришлите карточку компании <a href="https://t.me/m/Huow25QQZmYy">Глебу в Телеграм</a>.</p>
+            <p class="description">Оплата возможна в рублях (счёт и акт выставит самозанятый в РФ, предоставим чек), через Paypal,  по IBAN в немецком банке, через Stripe (по ссылкам выше), через USDT и другие криптовалюты. <br> Для компаний выставим инвойс от европейского ИП (selbständig) с оплатой по IBAN. При оплате от компании — стоимость +10 тысяч рублей. Чтобы оплатить от компании, пришлите карточку компании <a href="https://t.me/m/Huow25QQZmYy">Глебу в Телеграм</a>.</p>
         </section>
 
         <!-- FAQ Section -->
@@ -1088,7 +1127,7 @@
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Можем выставить счёт от самозанятого в РФ, инвойс от европейского ИП (selbständig). Для выставления счёта пришлите, пожалуйста, ваши реквизиты <a href="https://t.me/m/Huow25QQZmYy">Глебу в Телеграм</a>.</p>
+                        <p>Можем выставить счёт от самозанятого в РФ, инвойс от европейского ИП (selbständig). Для выставления счёта пришлите, пожалуйста, ваши реквизиты <a href="https://t.me/m/Kr7m7YWyZDZi">Глебу в Телеграм</a>. При оплате от компании — стоимость +10 тысяч рублей.</p>
                     </div>
                 </div>
                 
@@ -1098,7 +1137,7 @@
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Лаборатория подойдет как людям с опытом разработки, так и новичкам. Мы подробно рассказываем, как пользоваться инструментами, и для большинства задач показываем, как использовать инструменты без кода (такие как артефакты Claude, Custom GPT, NotebookLM, GPT Agent и просто продвинутые LLM). </p>
+                        <p>Лаборатория подойдет как людям с опытом разработки, так и новичкам. Мы подробно рассказываем, как пользоваться терминалом другими инструментами, и для большинства задач показываем, как использовать инструменты без кода (такие как артефакты Claude, Custom GPT, NotebookLM, GPT Agent и просто продвинутые LLM). </p>
                     </div>
                 </div>
                 
@@ -1118,7 +1157,7 @@
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Вам потребуются доступ к платному тарифу Claude (Pro, Max) code (входит в подписку Claude Plus, Max) или Codex (входит в подписку ChatGPT Plus, Pro). Для работы с территории РФ потребуется VPN. </p>
+                        <p>Вам потребуются доступ к платному тарифу Claude (Pro, Max. Для работы с территории РФ потребуется VPN. </p>
                     </div>
                 </div>                
 
@@ -1148,7 +1187,7 @@
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>В программе рассматриваются современные инструменты для работы с ИИ-агентами, включая Claude code, OpenAI codex-cli, Cursor, Goose, n8n и другие передовые технологии.</p>
+                        <p>В программе рассматриваются современные инструменты для работы с ИИ-агентами, включая Claude code, OpenAI codex-cli, Cursor, Windsurf и другие передовые технологии.</p>
                     </div>
                 </div>
                 
@@ -1274,23 +1313,53 @@
                     'дизайнеров',
                     'исследователей',
                     'фронтэндеров',
-                    'ux-дизайнеров',
-                    'бэкэндеров',
-                    'юристов',
-                    'писателей',
-                    'мыслителей',
-                    'сейлзов',
-                    'художников',
-                    'маркетологов',
+                    'фулстэков',
+                    'тестировщиков',
+                    'архитекторов',
                     'аналитиков',
-                    'инженеров',
-                    'тренеров'
+                    'ux-дизайнеров',
+                    'маркетологов',
+                    'контент-мейкеров',
+                    'копирайтеров',
+                    'редакторов',
+                    'журналистов',
+                    'писателей',
+                    'переводчиков',
+                    'юристов',
+                    'проектировщиков',
+                    'продюсеров',
+                    'преподавателей',
+                    'тренеров',
+                    'менторов',
+                    'художников',
+                    'иллюстраторов',
+                    'motion-дизайнеров',
+                    '3d-художников',
+                    'сейлзов',
+                    'бизнес-девелоперов',
+                    'проджектов',
+                    'финансистов',
+                    'инвесторов',
+                    'рекрутеров',
+                    'HR-специалистов',
+                    'блогеров',
+                    'стратегов',
+                    'директоров',
+                    'фаундеров',
+                    'стартаперов',
+                    'фотографов',
+                    'операторов',
+                    'монтажёров',
+                    'музыкантов',
+                    'креаторов',
+                    'исследователей',
+                    'мыслителей'
                 ];
                 let highlightIndex = 0;
                 let typingTimeoutId;
                 let typingStarted = false;
-                const typingDuration = 1000;
-                const pauseDuration = 800;
+                const typingDuration = 715;
+                const pauseDuration = 575;
                 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
                 highlightRotator.textContent = '';
@@ -2374,7 +2443,7 @@
                 log.hidden = true;
 
                 const iconInterval = cycleTexts(iconEl, shuffle(icons), 300);
-                const verbInterval = cycleTexts(verbEl, shuffle(verbs).slice(0, 4), 800);
+                const verbInterval = cycleTexts(verbEl, shuffle(verbs).slice(0, 4), 400);
 
                 const duration = 2200 + Math.random() * 1500;
 
@@ -2409,6 +2478,19 @@
             const tabs = document.querySelectorAll('[data-tab]');
             const contents = document.querySelectorAll('[data-content]');
 
+            const resetAnimations = (element) => {
+                // Reset all animations by cloning and replacing the element
+                const commands = element.querySelectorAll('.terminal-command');
+                const outputs = element.querySelectorAll('.terminal-output > *');
+
+                [...commands, ...outputs].forEach(el => {
+                    el.style.animation = 'none';
+                    // Force reflow
+                    void el.offsetWidth;
+                    el.style.animation = '';
+                });
+            };
+
             tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
                     const targetContent = tab.getAttribute('data-tab');
@@ -2422,16 +2504,26 @@
                     // Hide all content divs and remove is-active
                     contents.forEach(content => {
                         content.classList.remove('is-active');
+                        content.hidden = true;
                     });
 
                     // Show the target content and add is-active
                     const targetDiv = document.querySelector(`[data-content="${targetContent}"]`);
                     if (targetDiv) {
-                        targetDiv.classList.add('is-active');
-                    }
+                        // First trigger the thinking animation
+                        runAnimation();
 
-                    // Trigger animation refresh when switching tabs
-                    runAnimation();
+                        // Then show the content after thinking animation completes
+                        setTimeout(() => {
+                            targetDiv.hidden = false;
+                            targetDiv.classList.add('is-active');
+
+                            // Reset and restart line-by-line animations
+                            setTimeout(() => {
+                                resetAnimations(targetDiv);
+                            }, 50);
+                        }, 2200 + Math.random() * 1500); // Match the thinking animation duration
+                    }
                 });
             });
         });
