@@ -117,6 +117,46 @@
             max-height: 600px;
         }
 
+        .terminal-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            border-bottom: 1px solid rgba(var(--accent-rgb), 0.15);
+            padding-bottom: 0.5rem;
+        }
+
+        .terminal-tab {
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: 1px solid rgba(var(--accent-rgb), 0.2);
+            border-radius: 6px;
+            color: var(--fg);
+            cursor: pointer;
+            font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .terminal-tab:hover {
+            background: rgba(var(--accent-rgb), 0.1);
+            border-color: rgba(var(--accent-rgb), 0.4);
+        }
+
+        .terminal-tab.is-active {
+            background: var(--accent);
+            color: var(--bg);
+            border-color: var(--accent);
+        }
+
+        .terminal-content {
+            display: none;
+        }
+
+        .terminal-content.is-active {
+            display: block;
+        }
+
         .terminal-thinking {
             display: none;
             align-items: center;
@@ -249,11 +289,12 @@
             <section class="three-column-section" id="value-proposition-section">
                 <div class="column">
                     <h2 class="column-title">
-                     Что такое Claude Code
+                     Что такое <span class="highlight">Claude Code</span>?
                     </h2>
                 </div>
                 <div class="column">
                     <p>Claude Code — универсальный ИИ-агент, использующий топовую большую языковую модель Anthropic Claude Sonnet 4.5 для работы с файлами на вашем компьютере или в облаке. Читает и пишет файлы, выполняет действия, пишет, исправляет и запускает код, помогает обрабатывать данные, создавать презентации и графику, пользоваться браузером — всё, что вы можете делать в компьютере.</p>
+                    <p>Помимо разработчиков, им пользуются миллионы людей из разных самых сфер: от продактов до юристов, от аналитиков до маркетологов, от дизайнеров до менеджеров.</p>
                 </div>
                 <div class="column">
                     <div class="terminal-shell" data-terminal-shell>
@@ -2095,6 +2136,8 @@
                 }, delay);
             };
 
+            let hasAnimated = false;
+
             const runAnimation = () => {
                 thinking.classList.add('is-active');
                 log.hidden = true;
@@ -2112,7 +2155,20 @@
                 }, duration);
             };
 
-            runAnimation();
+            // Use Intersection Observer to start animation when terminal is visible
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !hasAnimated) {
+                        hasAnimated = true;
+                        runAnimation();
+                        observer.unobserve(terminalShell); // Stop observing after first animation
+                    }
+                });
+            }, {
+                threshold: 0.3 // Start when 30% of terminal is visible
+            });
+
+            observer.observe(terminalShell);
 
             window.addEventListener('terminal-demo-refresh', () => {
                 runAnimation();
