@@ -1632,16 +1632,18 @@
             const discountInput = document.getElementById('discount-input');
             const discountApplyBtn = document.getElementById('discount-apply-btn');
             const discountMessage = document.getElementById('discount-message');
-            
+
             // Toggle discount input field
-            discountLink.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (discountInputWrapper.style.display === 'none') {
-                    discountInputWrapper.style.display = 'flex';
-                    discountLink.style.display = 'none';
-                    discountInput.focus();
-                }
-            });
+            if (discountLink) {
+                discountLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (discountInputWrapper.style.display === 'none') {
+                        discountInputWrapper.style.display = 'flex';
+                        discountLink.style.display = 'none';
+                        discountInput.focus();
+                    }
+                });
+            }
             
             // Apply discount code
             function applyDiscount() {
@@ -1662,8 +1664,10 @@
                     // Hide input, show link with applied discount
                     setTimeout(() => {
                         discountInputWrapper.style.display = 'none';
-                        discountLink.textContent = `Код: ${code} (-${discountPercent}%)`;
-                        discountLink.style.display = 'inline';
+                        if (discountLink) {
+                            discountLink.textContent = `Код: ${code} (-${discountPercent}%)`;
+                            discountLink.style.display = 'inline';
+                        }
                     }, 1500);
                 } else {
                     showDiscountMessage('Неверный код', 'error');
