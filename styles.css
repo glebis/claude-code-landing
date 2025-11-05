@@ -50,6 +50,19 @@ a {
         line-height: 1.5;
     }
 
+    /* Remove scroll margin - sections should scroll to their natural position */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Section headers are sticky, so sections should scroll behind them naturally */
+    .pricing-section,
+    #why-claude,
+    #schedule,
+    #prices {
+        scroll-margin-top: 0;
+    }
+
     .middot {
         font-style: normal;
         /* font-size: 4rem; */

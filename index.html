@@ -784,7 +784,7 @@
                 </div>
                 
                 <div class="discount-section">
-                    <a href="#" class="discount-link" id="discount-link">Ввести код</a>
+                   <!-- <a href="#" class="discount-link" id="discount-link">Ввести код</a> -->
                     <div class="discount-input-wrapper" id="discount-input-wrapper" style="display: none;">
                         <input type="text" class="discount-input" id="discount-input" placeholder="Введите код">
                         <button class="discount-apply-btn" id="discount-apply-btn">Применить</button>
@@ -1969,7 +1969,24 @@
                     const el = document.querySelector(targetId);
                     if (el) {
                         e.preventDefault();
-                        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                        // Calculate the position to scroll to
+                        // If target IS a .section-header or contains one, scroll to it properly
+                        let targetToScroll = el;
+
+                        if (el.classList.contains('section-header')) {
+                            // Target is a section header itself (like #schedule)
+                            targetToScroll = el;
+                        } else {
+                            // Check if target contains a section header (like #prices)
+                            const sectionHeader = el.querySelector('.section-header');
+                            if (sectionHeader) {
+                                targetToScroll = sectionHeader;
+                            }
+                        }
+
+                        targetToScroll.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
                         // Update hash without jumping
                         history.pushState(null, '', targetId);
                     }
