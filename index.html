@@ -561,6 +561,120 @@
             </div>
         </section>
 
+        <!-- Agent Architecture Section -->
+        <section class="three-column-section" id="agent-architecture">
+            <div class="column">
+                <h3 class="column-title">
+                    Архитектура <span class="highlight">агентов</span>
+                </h3>
+            </div>
+
+            <div class="column">
+                <p class="column-text"><strong>Субагенты и параллельная работа</strong></p>
+                <p class="column-text">
+                    Claude Code может запускать до 10 параллельных субагентов, каждый с контекстом в 200K токенов. Это даёт до 2 миллионов токенов рабочей памяти для сложных задач: исследования кодовой базы, рефакторинга, анализа данных.
+                </p>
+                <p class="column-text">
+                    На лаборатории научимся делегировать задачи субагентам, сохраняя основной контекст чистым.
+                </p>
+            </div>
+
+            <div class="column">
+                <p class="column-text"><strong>Память агента</strong></p>
+                <ul>
+                    <li><strong>Краткосрочная:</strong> окно контекста текущей сессии (200K токенов)</li>
+                    <li><strong>Долгосрочная:</strong> файлы CLAUDE.md — знания проекта, загружаются автоматически</li>
+                    <li><strong>Рабочая:</strong> PLAN.md, TODO.md — память между сессиями</li>
+                    <li><strong>Навыки:</strong> переиспользуемые скрипты в .claude/skills/</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Best Practices Section -->
+        <section class="three-column-section" id="best-practices">
+            <div class="column">
+                <h3 class="column-title">
+                    Лучшие <span class="highlight">практики</span>
+                </h3>
+            </div>
+
+            <div class="column">
+                <p class="column-text"><strong>Правило 80-20-5 для выбора модели</strong></p>
+                <ul>
+                    <li><strong>Haiku (5%):</strong> быстрые задачи, UI-scaffolding, boilerplate — $1/$5 за M токенов</li>
+                    <li><strong>Sonnet (80%):</strong> ежедневная разработка, рефакторинг, документация — $3/$15</li>
+                    <li><strong>Opus (15%):</strong> архитектурные решения, критичные фичи — $6/$22.50</li>
+                </ul>
+                <p class="column-text">
+                    Научимся экономить до 10x на токенах без потери качества.
+                </p>
+            </div>
+
+            <div class="column">
+                <p class="column-text"><strong>Управление контекстом</strong></p>
+                <ul>
+                    <li><strong>Специфичность:</strong> «Исправь баг 401 в src/auth.js» вместо «Исправь баги»</li>
+                    <li><strong>Чекпоинты:</strong> /compact в логических точках, /clear между задачами</li>
+                    <li><strong>Plan Mode:</strong> планируй перед выполнением (Shift+Tab дважды)</li>
+                    <li><strong>Проверяй:</strong> никогда не доверяй «Готово» без тестов</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Agent SDK Section -->
+        <section class="three-column-section" id="agent-sdk">
+            <div class="column">
+                <h3 class="column-title">
+                    Agent <span class="highlight">SDK</span>
+                </h3>
+            </div>
+
+            <div class="column">
+                <p class="column-text">
+                    <strong>Строим агентов за пределами терминала.</strong> Agent SDK позволяет создавать production-ready AI-агентов на Python и TypeScript с кастомными системными промптами, интеграцией инструментов и поддержкой нескольких провайдеров (Anthropic, AWS Bedrock, Google Vertex).
+                </p>
+            </div>
+
+            <div class="column">
+                <p class="column-text"><strong>Что можно построить:</strong></p>
+                <ul>
+                    <li>Кастомные ассистенты для кодинга</li>
+                    <li>Боты для ревью кода и документации</li>
+                    <li>Чатботы техподдержки</li>
+                    <li>Slack/Discord боты и GitHub Actions</li>
+                    <li>API для генерации контента</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Transcript Workflow Section -->
+        <section class="three-column-section" id="transcript-workflow">
+            <div class="column">
+                <h3 class="column-title">
+                    Работа с <span class="highlight">транскриптами</span>
+                </h3>
+            </div>
+
+            <div class="column">
+                <p class="column-text">
+                    <strong>Часы записей → действенные инсайты за минуты.</strong> Научимся извлекать из транскриптов встреч: решения, задачи, открытые вопросы, ключевые темы, новую терминологию.
+                </p>
+                <p class="column-text">
+                    Создадим переиспользуемый навык-анализатор транскриптов с автоматической генерацией саммари и тикетов.
+                </p>
+            </div>
+
+            <div class="column">
+                <p class="column-text"><strong>Применения:</strong></p>
+                <ul>
+                    <li>Саммари встреч и логи решений</li>
+                    <li>Обновления базы знаний</li>
+                    <li>Черновики блог-постов и FAQ</li>
+                    <li>Материалы для онбординга</li>
+                    <li>Анализ сентимента и извлечение терминологии</li>
+                </ul>
+            </div>
+        </section>
 
         <!-- New 3-Column Layout with Russian Text -->
         <section class="three-column-section" id="three-column-section">
