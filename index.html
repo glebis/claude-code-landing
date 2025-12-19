@@ -813,83 +813,6 @@
             </div>
         </section>
 
-        <!-- Glossary Section -->
-        <section class="three-column-section" id="glossary-section">
-            <div class="column">
-                <h3 class="column-title">
-                    <span class="highlight">Глоссарий</span>
-                </h3>
-                <p class="column-text" style="font-size: 0.9rem;">Ключевые термины и понятия, которые мы изучаем на лаборатории</p>
-            </div>
-            <div class="column" style="grid-column: span 2;">
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; font-size: 0.9rem;">
-                    <!-- Column 1: Agents & Core -->
-                    <div>
-                        <p style="margin-bottom: 0.8rem;"><strong class="highlight">Агенты</strong></p>
-                        <p style="margin-bottom: 0.5rem;"><strong>ИИ-агент</strong> — LLM с доступом к инструментам, работающая в цикле</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Субагент</strong> — агент, вызываемый другим агентом для параллельной работы</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Оркестратор</strong> — главный агент, координирующий работу субагентов</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Task Tool</strong> — инструмент для запуска до 10 параллельных субагентов</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Agent SDK</strong> — библиотека для создания production-агентов</p>
-
-                        <p style="margin-bottom: 0.8rem; margin-top: 1.2rem;"><strong class="highlight">Модели</strong></p>
-                        <p style="margin-bottom: 0.5rem;"><strong>LLM</strong> — Large Language Model, большая языковая модель</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Haiku</strong> — быстрая и дешёвая модель для простых задач</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Sonnet</strong> — основная модель для ежедневной работы</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Opus</strong> — топовая модель для сложных задач</p>
-                    </div>
-
-                    <!-- Column 2: Context & Prompting -->
-                    <div>
-                        <p style="margin-bottom: 0.8rem;"><strong class="highlight">Контекст и промтинг</strong></p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Токен</strong> — единица текста (~4 символа), базовый элемент LLM</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Контекстное окно</strong> — рабочая память агента (до 200K токенов)</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Context Rot</strong> — ухудшение качества при заполнении контекста</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Lost in the Middle</strong> — потеря информации в середине контекста</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Промт</strong> — инструкция для модели</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Мета-промтинг</strong> — когда LLM создаёт и улучшает промты</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Software 3.0</strong> — программирование через естественный язык</p>
-
-                        <p style="margin-bottom: 0.8rem; margin-top: 1.2rem;"><strong class="highlight">Команды Claude Code</strong></p>
-                        <p style="margin-bottom: 0.5rem;"><strong>/compact</strong> — сжатие контекста</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>/clear</strong> — очистка контекста</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>/resume</strong> — продолжение сессии</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>/plan</strong> — режим планирования без выполнения кода</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>/agents</strong> — управление субагентами</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>/memory</strong> — просмотр и редактирование памяти</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>/cost</strong> — стоимость текущей сессии</p>
-
-                        <p style="margin-bottom: 0.8rem; margin-top: 1.2rem;"><strong class="highlight">Возможности ИИ</strong></p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Extended Thinking</strong> — режим глубокого рассуждения</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Streaming</strong> — потоковый вывод в реальном времени</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Checkpointing</strong> — автоматическое отслеживание изменений файлов</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Session Management</strong> — сохранение состояния между сессиями</p>
-                    </div>
-
-                    <!-- Column 3: Tools & Integration -->
-                    <div>
-                        <p style="margin-bottom: 0.8rem;"><strong class="highlight">Инструменты</strong></p>
-                        <p style="margin-bottom: 0.5rem;"><strong>MCP</strong> — Model Context Protocol, стандарт подключения сервисов</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Skills</strong> — модульные навыки в .claude/skills/</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Hooks</strong> — автоматические действия на события</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>CLAUDE.md</strong> — файл долгосрочной памяти проекта</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>YOLO-mode</strong> — режим без подтверждений</p>
-
-                        <p style="margin-bottom: 0.8rem; margin-top: 1.2rem;"><strong class="highlight">Экосистема</strong></p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Plugins</strong> — расширения с навыками, командами, MCP-серверами</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Marketplace</strong> — каталог плагинов и расширений</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Slash Commands</strong> — пользовательские команды /название</p>
-
-                        <p style="margin-bottom: 0.8rem; margin-top: 1.2rem;"><strong class="highlight">Разработка</strong></p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Вайб-кодинг</strong> — создание кода через диалог</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>CLI</strong> — Command Line Interface, терминал</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Деплой</strong> — публикация в облако</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Vercel/Netlify</strong> — платформы для деплоя</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section class="comparison-section" id="schedule">
             <div class="double-diamond-content">
                 <!--<p style="text-align: center; font-style: italic; padding: 2rem 0;">Полное расписание обновляется</p>-->
@@ -1022,16 +945,13 @@
 
             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; font-size: 0.9rem;">
                 <div>
-                    <p><strong class="highlight">Рубли и переводы</strong></p>
-                    <p>Счёт и акт от самозанятого в РФ, предоставим чек. PayPal, IBAN в немецком банке.</p>
+                    <p>Оплата возможна в рублях (счёт и акт выставит самозанятый в РФ, предоставим чек), через Paypal, по IBAN в немецком банке, через Stripe (по ссылкам выше), через USDT и другие криптовалюты.</p>
                 </div>
                 <div>
-                    <p><strong class="highlight">Карты и крипто</strong></p>
-                    <p>Stripe (по ссылкам выше), USDT и другие криптовалюты.</p>
+                    <p>Для компаний выставим инвойс от европейского ИП (selbständig) с оплатой по IBAN.</p>
                 </div>
                 <div>
-                    <p><strong class="highlight">Для компаний</strong></p>
-                    <p>Инвойс от европейского ИП (Selbständig) по IBAN. +10 тыс. руб. Пришлите карточку компании <a href="https://t.me/m/Kr7m7YWyZDZi">Глебу в Телеграм</a>.</p>
+                    <p>При оплате от компании — стоимость +10 тысяч рублей. Чтобы оплатить от компании, пришлите карточку компании <a href="https://t.me/m/Kr7m7YWyZDZi">Глебу в Телеграм</a>.</p>
                 </div>
             </div>
         </section>
@@ -1156,6 +1076,83 @@
 
 
 
+        </section>
+
+        <!-- Glossary Section -->
+        <section class="three-column-section" id="glossary-section">
+            <div class="column">
+                <h3 class="column-title">
+                    <span class="highlight">Глоссарий</span>
+                </h3>
+                <p class="column-text" style="font-size: 0.9rem;">Ключевые термины и понятия, которые мы изучаем на лаборатории</p>
+            </div>
+            <div class="column" style="grid-column: span 2;">
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; font-size: 0.9rem;">
+                    <!-- Column 1: Agents & Core -->
+                    <div>
+                        <p style="margin-bottom: 0.8rem;"><strong class="highlight">Агенты</strong></p>
+                        <p style="margin-bottom: 0.5rem;"><strong>ИИ-агент</strong> — LLM с доступом к инструментам, работающая в цикле</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Субагент</strong> — агент, вызываемый другим агентом для параллельной работы</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Оркестратор</strong> — главный агент, координирующий работу субагентов</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Task Tool</strong> — инструмент для запуска до 10 параллельных субагентов</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Agent SDK</strong> — библиотека для создания production-агентов</p>
+
+                        <p style="margin-bottom: 0.8rem; margin-top: 1.2rem;"><strong class="highlight">Модели</strong></p>
+                        <p style="margin-bottom: 0.5rem;"><strong>LLM</strong> — Large Language Model, большая языковая модель</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Haiku</strong> — быстрая и дешёвая модель для простых задач</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Sonnet</strong> — основная модель для ежедневной работы</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Opus</strong> — топовая модель для сложных задач</p>
+                    </div>
+
+                    <!-- Column 2: Context & Prompting -->
+                    <div>
+                        <p style="margin-bottom: 0.8rem;"><strong class="highlight">Контекст и промтинг</strong></p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Токен</strong> — единица текста (~4 символа), базовый элемент LLM</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Контекстное окно</strong> — рабочая память агента (до 200K токенов)</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Context Rot</strong> — ухудшение качества при заполнении контекста</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Lost in the Middle</strong> — потеря информации в середине контекста</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Промт</strong> — инструкция для модели</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Мета-промтинг</strong> — когда LLM создаёт и улучшает промты</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Software 3.0</strong> — программирование через естественный язык</p>
+
+                        <p style="margin-bottom: 0.8rem; margin-top: 1.2rem;"><strong class="highlight">Команды Claude Code</strong></p>
+                        <p style="margin-bottom: 0.5rem;"><strong>/compact</strong> — сжатие контекста</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>/clear</strong> — очистка контекста</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>/resume</strong> — продолжение сессии</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>/plan</strong> — режим планирования без выполнения кода</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>/agents</strong> — управление субагентами</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>/memory</strong> — просмотр и редактирование памяти</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>/cost</strong> — стоимость текущей сессии</p>
+
+                        <p style="margin-bottom: 0.8rem; margin-top: 1.2rem;"><strong class="highlight">Возможности ИИ</strong></p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Extended Thinking</strong> — режим глубокого рассуждения</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Streaming</strong> — потоковый вывод в реальном времени</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Checkpointing</strong> — автоматическое отслеживание изменений файлов</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Session Management</strong> — сохранение состояния между сессиями</p>
+                    </div>
+
+                    <!-- Column 3: Tools & Integration -->
+                    <div>
+                        <p style="margin-bottom: 0.8rem;"><strong class="highlight">Инструменты</strong></p>
+                        <p style="margin-bottom: 0.5rem;"><strong>MCP</strong> — Model Context Protocol, стандарт подключения сервисов</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Skills</strong> — модульные навыки в .claude/skills/</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Hooks</strong> — автоматические действия на события</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>CLAUDE.md</strong> — файл долгосрочной памяти проекта</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>YOLO-mode</strong> — режим без подтверждений</p>
+
+                        <p style="margin-bottom: 0.8rem; margin-top: 1.2rem;"><strong class="highlight">Экосистема</strong></p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Plugins</strong> — расширения с навыками, командами, MCP-серверами</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Marketplace</strong> — каталог плагинов и расширений</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Slash Commands</strong> — пользовательские команды /название</p>
+
+                        <p style="margin-bottom: 0.8rem; margin-top: 1.2rem;"><strong class="highlight">Разработка</strong></p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Вайб-кодинг</strong> — создание кода через диалог</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>CLI</strong> — Command Line Interface, терминал</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Деплой</strong> — публикация в облако</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Vercel/Netlify</strong> — платформы для деплоя</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Footer Section -->
