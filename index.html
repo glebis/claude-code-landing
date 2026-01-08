@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" class="light">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WLF06M7BB0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-WLF06M7BB0');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Онлайн-лаборатория по работе с Claude code</title>
@@ -903,7 +913,7 @@
                         <li>Доступ к записям всех встреч и гайдов по использованию Claude code для задач работы с информацией и данными, генерации контента в различных форматах, работе с MCP, публикации приложений в вебе</li>
                         <li>Доступ к Custom GPT, помогающий сформулировать проблему и проект, протестировать идеи, изучить варианты технологий для реализации</li>
                         <li>Доступ к NotebookLM с базой документации, технологий и подходов</li>
-                        <li>Доступ к материалам: видеоуроки, презентации, промты, примеры проектов, ссылки на внешние ресурсы и гайды (на английском языке)</li>
+                        <li>Доступ к материалам: видеоуроки, презентации, промты, примеры проектов, ссылки на внешние ресурсы и гайды</li>
                         <li>Чат технической поддержки</li>
                     </ul>
                     <a href="https://buy.stripe.com/eVq00k0cK2Mrd3Z8yt7IY04" class="plan-button secondary" title="Оплата картой западного банка через Stripe">Оплатить картой</a>
@@ -1139,6 +1149,7 @@
                         <p style="margin-bottom: 0.5rem;"><strong>Hooks</strong> — автоматические действия на события</p>
                         <p style="margin-bottom: 0.5rem;"><strong>CLAUDE.md</strong> — файл долгосрочной памяти проекта</p>
                         <p style="margin-bottom: 0.5rem;"><strong>YOLO-mode</strong> — режим без подтверждений</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Ralph</strong> — бесконечный цикл автономного кодинга: <code>while :; do cat PROMPT.md | claude-code ; done</code></p>
 
                         <p style="margin-bottom: 0.8rem; margin-top: 1.2rem;"><strong class="highlight">Экосистема</strong></p>
                         <p style="margin-bottom: 0.5rem;"><strong>Plugins</strong> — расширения с навыками, командами, MCP-серверами</p>
