@@ -2,7 +2,7 @@
 title: "Terms and Conditions"
 subtitle: "Creative AI Workshop Series using Claude Code"
 author: "Gleb Kalinin"
-date: "January 2026"
+date: "March 2026"
 titlepage: true
 titlepage-color: "374151"
 titlepage-text-color: "ffffff"
@@ -13,7 +13,7 @@ classoption: oneside
 lang: en
 ---
 
-*Last updated: January 12, 2026*
+*Last updated: February 6, 2026*
 
 These General Terms and Conditions (AGB) govern the contractual relationship between the Provider and the Customer for the provision of educational and consulting services in the form of a workshop series on creative AI applications using Claude Code.
 
@@ -53,7 +53,7 @@ VAT: DE369692682
 
 2.2. **Workshop Structure**:
 
-- Duration: 6 weeks, starting January 13, 2026
+- Duration: 6 weeks, starting March 3, 2026
 - Format: Online via Zoom, coordination via Telegram
 - Schedule: Tuesdays 18:00 CET (theory + practice), Saturdays 12:00 CET (live coding)
 
