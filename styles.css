@@ -1865,6 +1865,20 @@ flex-grow: 1;
             color: var(--accent);
         }
 
+        #simulator-body .sim-next-prompt {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            padding: 0.5rem 0;
+            margin-top: 0.3rem;
+            transition: opacity 0.2s;
+        }
+
+        #simulator-body .sim-next-prompt:hover {
+            text-decoration: underline;
+        }
+
         #simulator-body .sim-feedback-detail {
             font-size: 0.85rem;
             padding: 0.2rem 0;
@@ -1886,23 +1900,6 @@ flex-grow: 1;
 
         #simulator-body .sim-label--warn {
             color: #f59e0b;
-        }
-
-        #simulator-body .sim-optimize-btn {
-            display: inline-block;
-            padding: 0.4rem 1rem;
-            border: 1px solid var(--accent);
-            border-radius: 4px;
-            color: var(--accent);
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s, color 0.2s;
-        }
-
-        #simulator-body .sim-optimize-btn:hover {
-            background: var(--accent);
-            color: var(--bg-light);
         }
 
         #simulator-body .sim-optimize-before {
@@ -1928,17 +1925,6 @@ flex-grow: 1;
         #simulator-body .sim-optimize-after code {
             font-size: 0.82rem;
             line-height: 1.5;
-        }
-
-        #simulator-body .sim-optimize-hidden {
-            opacity: 0;
-            transform: translateY(6px);
-            transition: opacity 0.35s ease, transform 0.35s ease;
-        }
-
-        #simulator-body .sim-optimize-hidden.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         @media (max-width: 768px) {

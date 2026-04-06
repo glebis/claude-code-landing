@@ -799,9 +799,9 @@
                     <h3 class="column-title">Между занятиями — <span class="highlight">симулятор</span></h3>
                     <p class="description">Набор навыков (skills) прямо в Claude Code, который работает как персональный тренер между сессиями лаборатории.</p>
                     <ul class="simulator-features">
-                        <li><strong>Личный контекст</strong> — узнает ваш опыт, проекты и цели</li>
+                        <li><strong>Личный контекст</strong> — узнает и сохраняет на вашем компьютере ваш опыт, проекты и цели</li>
                         <li><strong>Домашние задания</strong> — генерирует практические задачи, совмещающие ваши цели с пройденными инструментами</li>
-                        <li><strong>Обратная связь</strong> — разбирает ваш промптинг и подсказывает, как его улучшить</li>
+                        <li><strong>Обратная связь</strong> — разбирает ваши сессии и подсказывает, как улучшить взаимодействие с агентом</li>
                     </ul>
                 </div>
                 <div class="simulator-terminal">
@@ -955,6 +955,50 @@
                         </tr>
                     </tbody>
                 </table> -->
+            </div>
+        </section>
+
+        <!-- Personal Assistant Section -->
+        <section class="three-column-section" id="personal-assistant">
+            <div class="column">
+                <h3 class="column-title">
+                    Что вы <span class="highlight">построите</span>
+                </h3>
+                <p class="column-text" style="font-size: 0.95rem;">К концу лаборатории у вас будет не просто набор навыков — а работающий персональный ассистент, доступный 24/7.</p>
+            </div>
+
+            <div class="column">
+                <div style="border: 1px solid var(--border); padding: 1.2rem; border-radius: 4px; margin-bottom: 1.2rem;">
+                    <p style="margin-bottom: 0.5rem;"><strong class="highlight">Telegram и мессенджеры</strong></p>
+                    <p style="font-size: 0.9rem;">Claude Code подключается к Telegram, Slack и другим мессенджерам. Отправляете задачу сообщением — получаете результат. Работает, пока вы спите.</p>
+                </div>
+
+                <div style="border: 1px solid var(--border); padding: 1.2rem; border-radius: 4px; margin-bottom: 1.2rem;">
+                    <p style="margin-bottom: 0.5rem;"><strong class="highlight">Расписание и автоматизация</strong></p>
+                    <p style="font-size: 0.9rem;">Задачи по расписанию: ежедневные отчёты, мониторинг данных, регулярные проверки. Настраиваете один раз — работает каждый день.</p>
+                </div>
+
+                <div style="border: 1px solid var(--border); padding: 1.2rem; border-radius: 4px;">
+                    <p style="margin-bottom: 0.5rem;"><strong class="highlight">Удалённое выполнение</strong></p>
+                    <p style="font-size: 0.9rem;">Агент работает на сервере или в облаке, даже когда ваш компьютер выключен. Запускаете задачу из любого устройства, результат приходит в мессенджер.</p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div style="border: 1px solid var(--border); padding: 1.2rem; border-radius: 4px; margin-bottom: 1.2rem;">
+                    <p style="margin-bottom: 0.5rem;"><strong class="highlight">Навыки и память</strong></p>
+                    <p style="font-size: 0.9rem;">Ваш ассистент помнит контекст, накапливает навыки (skills) и становится полезнее с каждой неделей. Вы учите его так же, как учитесь сами.</p>
+                </div>
+
+                <div style="border: 1px solid var(--border); padding: 1.2rem; border-radius: 4px; margin-bottom: 1.2rem;">
+                    <p style="margin-bottom: 0.5rem;"><strong class="highlight">Мультиагентность</strong></p>
+                    <p style="font-size: 0.9rem;">Несколько агентов работают параллельно: один исследует, другой пишет код, третий проверяет. Вы координируете, а не делаете всё сами.</p>
+                </div>
+
+                <div style="border: 1px solid var(--accent); padding: 1.2rem; border-radius: 4px; background: color-mix(in srgb, var(--accent) 5%, transparent);">
+                    <p style="margin-bottom: 0.5rem;"><strong>Ваша система</strong></p>
+                    <p style="font-size: 0.9rem;">Всё вместе — это не отдельные инструменты, а единая система, которую вы собираете под свои задачи на лаборатории.</p>
+                </div>
             </div>
         </section>
 
@@ -2573,147 +2617,206 @@
     <!-- Simulator animation -->
     <script>
     (function() {
-        const lines = [
-            { type: 'claude', text: '✻ Запускаю /lab-simulator...' },
-            { type: 'spacer' },
-            { type: 'claude', text: 'Привет! Давай настроим твой контекст. Чем ты занимаешься?' },
-            { type: 'question', prompt: 'Выбери роль, которая ближе всего к твоей:', options: [
-                { key: '1', text: 'Разработчик — пишу код, работаю с API' },
-                { key: '2', text: 'Продакт / менеджер — управляю продуктом, анализирую данные' },
-                { key: '3', text: 'Дизайнер / исследователь — проектирую интерфейсы, провожу UX-исследования' },
-                { key: '4', text: 'Другое — у меня нетипичная роль' },
-            ], selected: '2' },
-            { type: 'spacer' },
-            { type: 'claude', text: 'Продакт — отлично. Какой у тебя опыт с кодом и терминалом?' },
-            { type: 'question', prompt: 'Оцени свой уровень:', options: [
-                { key: '1', text: 'Нулевой — никогда не открывал терминал' },
-                { key: '2', text: 'Базовый — могу поправить HTML, git push/pull' },
-                { key: '3', text: 'Средний — пишу скрипты, работаю с API' },
-                { key: '4', text: 'Продвинутый — программирование моя вторая профессия' },
-            ], selected: '2' },
-            { type: 'spacer' },
-            { type: 'claude', text: 'Понял. Над каким проектом работаешь сейчас?' },
-            { type: 'user', text: 'Делаю внутренний дашборд аналитики продаж для команды' },
-            { type: 'spacer' },
-            { type: 'claude', text: 'На этой неделе мы прошли MCP и навыки (skills). Генерирую задание под твой контекст:' },
-            { type: 'spacer' },
-            { type: 'task', text: '<strong>Задание:</strong> Создай MCP-сервер, который подключается к вашей базе продаж и позволяет Claude Code делать SQL-запросы естественным языком.' },
-            { type: 'task', text: '1. Настрой MCP-сервер с доступом к базе данных' },
-            { type: 'task', text: '2. Напиши 3 промта для типичных запросов вашей команды' },
-            { type: 'task', text: '3. Оформи результат как навык (skill), чтобы коллеги могли пользоваться' },
-            { type: 'spacer' },
-            { type: 'dim', text: '⏱ ~45 мин · использует: MCP, Skills, промтинг' },
-            { type: 'spacer' },
-            { type: 'claude', text: 'Какой формат работы тебе удобнее?' },
-            { type: 'question', prompt: 'Выбери подход:', options: [
-                { key: '1', text: 'Пошагово — веди меня за руку, объясняй каждый шаг' },
-                { key: '2', text: 'Самостоятельно — дай задание, приду с результатом' },
-                { key: '3', text: 'Парное программирование — делаем вместе в реальном времени' },
-            ], selected: '2' },
-            { type: 'spacer' },
-            { type: 'claude', text: 'Принято. Возвращайся с результатом, разберем вместе.' },
-            { type: 'spacer' },
-            { type: 'dim', text: '· · ·  позже  · · ·' },
-            { type: 'spacer' },
-            { type: 'user', text: 'Готово! Вот мой навык: /sales-query' },
-            { type: 'spacer' },
-            { type: 'claude', text: '✻ Анализирую твой навык /sales-query...' },
-            { type: 'spacer' },
-            { type: 'feedback', text: '<strong>Разбор промптинга</strong>' },
-            { type: 'feedback-detail', text: '<span class="sim-label sim-label--good">+</span> Хорошо: ты задал роль ("ты аналитик продаж") — это сразу фокусирует модель.' },
-            { type: 'feedback-detail', text: '<span class="sim-label sim-label--warn">!</span> Проблема: промты не содержат схему базы. Claude угадывает названия таблиц и колонок — это вызывает ошибки и тратит токены на переспрашивание.' },
-            { type: 'feedback-detail', text: '<span class="sim-label sim-label--warn">!</span> Проблема: запрос "покажи продажи за месяц" не уточняет, какой месяц, какую метрику (выручка? кол-во сделок?) и формат вывода.' },
-            { type: 'feedback-detail', text: '<span class="sim-label sim-label--good">+</span> Хорошо: ты оформил результат как skill с описанием — коллеги смогут пользоваться.' },
-            { type: 'spacer' },
-            { type: 'optimize-btn', text: 'Запустить оптимизацию промтов →' },
-            { type: 'spacer' },
-            { type: 'optimize-before', text: '<strong>До:</strong><br><code>Покажи продажи за месяц</code>' },
-            { type: 'optimize-after', text: '<strong>После:</strong><br><code>Выведи суммарную выручку (sales.amount) и количество закрытых сделок (status=\'won\') из таблицы deals за текущий календарный месяц, сгруппируй по менеджерам (sales_rep), отсортируй по убыванию выручки. Формат: markdown-таблица.</code>' },
-            { type: 'optimize-after', text: '<em>Оптимизированный промт на ~70% точнее и не требует уточняющих вопросов.</em>' },
+        // Each step is a group of lines shown together on click
+        const steps = [
+            // Step 0: initial
+            [
+                { type: 'claude', text: '✻ Загружаю навык (lab-simulator)...' },
+            ],
+            // Step 1: ask role
+            [
+                { type: 'claude', text: 'Привет! Давай настроим твой контекст. Чем ты занимаешься?' },
+                { type: 'question', prompt: 'Выбери роль, которая ближе всего к твоей:', options: [
+                    { key: '1', text: 'Разработчик — пишу код, работаю с API' },
+                    { key: '2', text: 'Продакт / менеджер — управляю продуктом, анализирую данные' },
+                    { key: '3', text: 'Дизайнер / исследователь — проектирую интерфейсы, провожу UX-исследования' },
+                    { key: '4', text: 'Другое — у меня нетипичная роль' },
+                ], selected: '2' },
+            ],
+            // Step 2: ask experience
+            [
+                { type: 'claude', text: 'Продакт — отлично. Какой у тебя опыт с кодом и терминалом?' },
+                { type: 'question', prompt: 'Оцени свой уровень:', options: [
+                    { key: '1', text: 'Нулевой — никогда не открывал терминал' },
+                    { key: '2', text: 'Базовый — могу поправить HTML, git push/pull' },
+                    { key: '3', text: 'Средний — пишу скрипты, работаю с API' },
+                    { key: '4', text: 'Продвинутый — программирование моя вторая профессия' },
+                ], selected: '2' },
+            ],
+            // Step 3: ask project
+            [
+                { type: 'claude', text: 'Понял. Над каким проектом работаешь сейчас?' },
+                { type: 'user', text: 'Делаю внутренний дашборд аналитики продаж для команды' },
+            ],
+            // Step 4: generate task
+            [
+                { type: 'claude', text: 'На этой неделе мы прошли MCP и навыки (skills). Генерирую задание под твой контекст:' },
+                { type: 'task', text: '<strong>Задание:</strong> Создай MCP-сервер, который подключается к вашей базе продаж и позволяет Claude Code делать SQL-запросы естественным языком.' },
+                { type: 'task', text: '1. Настрой MCP-сервер с доступом к базе данных' },
+                { type: 'task', text: '2. Напиши 3 промта для типичных запросов вашей команды' },
+                { type: 'task', text: '3. Оформи результат как навык (skill), чтобы коллеги могли пользоваться' },
+                { type: 'dim', text: '⏱ ~45 мин · использует: MCP, Skills, промтинг' },
+            ],
+            // Step 5: ask format
+            [
+                { type: 'claude', text: 'Какой формат работы тебе удобнее?' },
+                { type: 'question', prompt: 'Выбери подход:', options: [
+                    { key: '1', text: 'Пошагово — веди меня за руку, объясняй каждый шаг' },
+                    { key: '2', text: 'Самостоятельно — дай задание, приду с результатом' },
+                    { key: '3', text: 'Парное программирование — делаем вместе в реальном времени' },
+                ], selected: '2' },
+            ],
+            // Step 6: confirmation + time skip
+            [
+                { type: 'claude', text: 'Принято. Возвращайся с результатом, разберем вместе.' },
+                { type: 'dim', text: '· · ·  позже  · · ·' },
+                { type: 'user', text: 'Готово! Вот мой навык: /sales-query' },
+            ],
+            // Step 7: feedback
+            [
+                { type: 'claude', text: '✻ Анализирую твой навык /sales-query...' },
+                { type: 'feedback', text: '<strong>Разбор промптинга</strong>' },
+                { type: 'feedback-detail', text: '<span class="sim-label sim-label--good">+</span> Хорошо: ты задал роль ("ты аналитик продаж") — это сразу фокусирует модель.' },
+                { type: 'feedback-detail', text: '<span class="sim-label sim-label--warn">!</span> Проблема: промты не содержат схему базы. Claude угадывает названия таблиц и колонок — это вызывает ошибки и тратит токены на переспрашивание.' },
+                { type: 'feedback-detail', text: '<span class="sim-label sim-label--warn">!</span> Проблема: запрос "покажи продажи за месяц" не уточняет, какой месяц, какую метрику (выручка? кол-во сделок?) и формат вывода.' },
+                { type: 'feedback-detail', text: '<span class="sim-label sim-label--good">+</span> Хорошо: ты оформил результат как skill с описанием — коллеги смогут пользоваться.' },
+            ],
+            // Step 8: optimize
+            [
+                { type: 'optimize-before', text: '<strong>До:</strong><br><code>Покажи продажи за месяц</code>' },
+                { type: 'optimize-after', text: '<strong>После:</strong><br><code>Выведи суммарную выручку (sales.amount) и количество закрытых сделок (status=\'won\') из таблицы deals за текущий календарный месяц, сгруппируй по менеджерам (sales_rep), отсортируй по убыванию выручки. Формат: markdown-таблица.</code>' },
+                { type: 'dim', text: 'Оптимизированный промт на ~70% точнее и не требует уточняющих вопросов.' },
+            ],
         ];
 
         const body = document.getElementById('simulator-body');
         if (!body) return;
 
-        let started = false;
+        let currentStep = 0;
+        let initialized = false;
 
-        function runSimulator() {
-            if (started) return;
-            started = true;
-            body.innerHTML = '';
+        function renderLine(line) {
+            const el = document.createElement('div');
+            el.classList.add('sim-line');
 
-            lines.forEach((line, i) => {
-                const el = document.createElement('div');
-                el.classList.add('sim-line');
+            if (line.type === 'claude') {
+                el.classList.add('sim-claude');
+                el.innerHTML = line.text;
+            } else if (line.type === 'user') {
+                el.classList.add('sim-user');
+                el.innerHTML = line.text;
+            } else if (line.type === 'question') {
+                el.classList.add('sim-question');
+                let html = '<div class="sim-question__prompt">' + line.prompt + '</div>';
+                html += '<div class="sim-question__options">';
+                line.options.forEach(opt => {
+                    const sel = opt.key === line.selected;
+                    html += '<div class="sim-question__option' + (sel ? ' is-selected' : '') + '">'
+                        + '<span class="sim-question__key">' + opt.key + '</span> '
+                        + opt.text + '</div>';
+                });
+                html += '</div>';
+                el.innerHTML = html;
+            } else if (line.type === 'task') {
+                el.classList.add('sim-task');
+                el.innerHTML = line.text;
+            } else if (line.type === 'dim') {
+                el.classList.add('sim-dim');
+                el.innerHTML = line.text;
+            } else if (line.type === 'feedback') {
+                el.classList.add('sim-feedback');
+                el.innerHTML = line.text;
+            } else if (line.type === 'feedback-detail') {
+                el.classList.add('sim-feedback-detail');
+                el.innerHTML = line.text;
+            } else if (line.type === 'optimize-before') {
+                el.classList.add('sim-optimize-before');
+                el.innerHTML = line.text;
+            } else if (line.type === 'optimize-after') {
+                el.classList.add('sim-optimize-after');
+                el.innerHTML = line.text;
+            }
 
-                if (line.type === 'spacer') {
-                    el.classList.add('sim-spacer');
-                } else if (line.type === 'claude') {
-                    el.classList.add('sim-claude');
-                    el.innerHTML = line.text;
-                } else if (line.type === 'user') {
-                    el.classList.add('sim-user');
-                    el.innerHTML = line.text;
-                } else if (line.type === 'question') {
-                    el.classList.add('sim-question');
-                    let html = '<div class="sim-question__prompt">' + line.prompt + '</div>';
-                    html += '<div class="sim-question__options">';
-                    line.options.forEach(opt => {
-                        const sel = opt.key === line.selected;
-                        html += '<div class="sim-question__option' + (sel ? ' is-selected' : '') + '">'
-                            + '<span class="sim-question__key">' + opt.key + '</span> '
-                            + opt.text + '</div>';
-                    });
-                    html += '</div>';
-                    el.innerHTML = html;
-                } else if (line.type === 'task') {
-                    el.classList.add('sim-task');
-                    el.innerHTML = line.text;
-                } else if (line.type === 'dim') {
-                    el.classList.add('sim-dim');
-                    el.innerHTML = line.text;
-                } else if (line.type === 'feedback') {
-                    el.classList.add('sim-feedback');
-                    el.innerHTML = line.text;
-                } else if (line.type === 'feedback-detail') {
-                    el.classList.add('sim-feedback-detail');
-                    el.innerHTML = line.text;
-                } else if (line.type === 'optimize-btn') {
-                    el.classList.add('sim-optimize-btn');
-                    el.innerHTML = line.text;
-                    el.addEventListener('click', function() {
-                        this.style.display = 'none';
-                        const hidden = body.querySelectorAll('.sim-optimize-hidden');
-                        hidden.forEach((h, idx) => {
-                            setTimeout(() => {
-                                h.style.display = '';
-                                h.classList.add('visible');
-                                body.scrollTop = body.scrollHeight;
-                            }, idx * 400);
-                        });
-                    });
-                } else if (line.type === 'optimize-before' || line.type === 'optimize-after') {
-                    el.classList.add('sim-optimize-hidden');
-                    el.classList.add(line.type === 'optimize-before' ? 'sim-optimize-before' : 'sim-optimize-after');
-                    el.innerHTML = line.text;
-                    el.style.display = 'none';
-                }
-
-                body.appendChild(el);
-
-                setTimeout(() => {
-                    el.classList.add('visible');
-                    body.scrollTop = body.scrollHeight;
-                }, 600 * i);
-            });
+            return el;
         }
 
-        const observer = new IntersectionObserver(entries => {
-            if (entries[0].isIntersecting) {
-                runSimulator();
+        function showStep() {
+            if (currentStep >= steps.length) {
+                // Hide the "next" prompt and show restart
+                var prompt = body.querySelector('.sim-next-prompt');
+                if (prompt) prompt.remove();
+                var restart = document.createElement('div');
+                restart.classList.add('sim-line', 'sim-next-prompt', 'visible');
+                restart.innerHTML = '↺ Начать сначала';
+                restart.addEventListener('click', function() {
+                    currentStep = 0;
+                    body.innerHTML = '';
+                    showStep();
+                });
+                body.appendChild(restart);
+                return;
+            }
+
+            var lines = steps[currentStep];
+            lines.forEach(function(line, idx) {
+                var el = renderLine(line);
+                body.appendChild(el);
+                setTimeout(function() {
+                    el.classList.add('visible');
+                    body.scrollTop = body.scrollHeight;
+                }, idx * 150);
+            });
+
+            currentStep++;
+
+            // Remove old prompt
+            var oldPrompt = body.querySelector('.sim-next-prompt');
+            if (oldPrompt) oldPrompt.remove();
+
+            // Add "next" prompt after lines animate in
+            if (currentStep < steps.length) {
+                setTimeout(function() {
+                    var prompt = document.createElement('div');
+                    prompt.classList.add('sim-line', 'sim-next-prompt');
+                    prompt.innerHTML = 'Далее →';
+                    prompt.addEventListener('click', function() {
+                        this.remove();
+                        showStep();
+                    });
+                    body.appendChild(prompt);
+                    setTimeout(function() {
+                        prompt.classList.add('visible');
+                        body.scrollTop = body.scrollHeight;
+                    }, 50);
+                }, lines.length * 150 + 100);
+            } else {
+                // Last step — show restart after animation
+                setTimeout(function() {
+                    var restart = document.createElement('div');
+                    restart.classList.add('sim-line', 'sim-next-prompt');
+                    restart.innerHTML = '↺ Начать сначала';
+                    restart.addEventListener('click', function() {
+                        currentStep = 0;
+                        body.innerHTML = '';
+                        showStep();
+                    });
+                    body.appendChild(restart);
+                    setTimeout(function() {
+                        restart.classList.add('visible');
+                        body.scrollTop = body.scrollHeight;
+                    }, 50);
+                }, lines.length * 150 + 100);
+            }
+        }
+
+        // Start on first visibility
+        var observer = new IntersectionObserver(function(entries) {
+            if (entries[0].isIntersecting && !initialized) {
+                initialized = true;
+                showStep();
                 observer.disconnect();
             }
-        }, { threshold: 0.3 });
+        }, { threshold: 0.2 });
 
         observer.observe(document.getElementById('simulator'));
     })();
