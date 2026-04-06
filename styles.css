@@ -435,6 +435,16 @@ label {
     font-family: var(--font-ebgaramond);
 }
 
+#testimonials blockquote p {
+    font-family: var(--font-ebgaramond);
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+#testimonials .col-span-2-offset-1 em {
+    font-family: var(--font-ebgaramond);
+}
+
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1711,5 +1721,228 @@ flex-grow: 1;
             .welcome-terminal {
                 animation: none !important;
                 transition: none !important;
+            }
+        }
+
+        /* Simulator Section */
+        .simulator-section {
+            margin: 8rem 0;
+        }
+
+        .simulator-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 3rem;
+            align-items: start;
+            margin-top: 2rem;
+        }
+
+        .simulator-description .column-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .simulator-description .description {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .simulator-features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .simulator-features li {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+
+        .simulator-features li:last-child {
+            border-bottom: none;
+        }
+
+        .simulator-terminal .terminal-shell {
+            border: 2px solid var(--accent);
+        }
+
+        #simulator-body .sim-line {
+            opacity: 0;
+            transform: translateY(6px);
+            transition: opacity 0.35s ease, transform 0.35s ease;
+            padding: 0.15rem 0;
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+
+        #simulator-body .sim-line.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #simulator-body .sim-claude {
+            color: var(--accent);
+        }
+
+        #simulator-body .sim-user {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        #simulator-body .sim-user::before {
+            content: "> ";
+            opacity: 0.5;
+        }
+
+        #simulator-body .sim-dim {
+            opacity: 0.55;
+            font-size: 0.82rem;
+        }
+
+        #simulator-body .sim-task {
+            border-left: 2px solid var(--accent);
+            padding-left: 0.8rem;
+            margin: 0.4rem 0;
+        }
+
+        #simulator-body .sim-feedback {
+            background: color-mix(in srgb, var(--accent) 8%, transparent);
+            border-radius: 4px;
+            padding: 0.5rem 0.8rem;
+            margin: 0.4rem 0;
+        }
+
+        #simulator-body .sim-spacer {
+            height: 0.5rem;
+        }
+
+        #simulator-body .sim-question {
+            margin: 0.3rem 0;
+        }
+
+        #simulator-body .sim-question__prompt {
+            color: var(--accent);
+            margin-bottom: 0.3rem;
+            font-size: 0.85rem;
+        }
+
+        #simulator-body .sim-question__options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        #simulator-body .sim-question__option {
+            font-size: 0.85rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+            border: 1px solid transparent;
+            opacity: 0.55;
+        }
+
+        #simulator-body .sim-question__option.is-selected {
+            border-color: var(--accent);
+            background: color-mix(in srgb, var(--accent) 10%, transparent);
+            opacity: 1;
+            font-weight: 600;
+        }
+
+        #simulator-body .sim-question__key {
+            display: inline-block;
+            width: 1.2em;
+            height: 1.2em;
+            line-height: 1.2em;
+            text-align: center;
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-right: 0.3rem;
+        }
+
+        #simulator-body .sim-question__option.is-selected .sim-question__key {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        #simulator-body .sim-feedback-detail {
+            font-size: 0.85rem;
+            padding: 0.2rem 0;
+            line-height: 1.5;
+        }
+
+        #simulator-body .sim-label {
+            display: inline-block;
+            width: 1.3em;
+            text-align: center;
+            font-weight: 700;
+            border-radius: 2px;
+            margin-right: 0.2rem;
+        }
+
+        #simulator-body .sim-label--good {
+            color: #22c55e;
+        }
+
+        #simulator-body .sim-label--warn {
+            color: #f59e0b;
+        }
+
+        #simulator-body .sim-optimize-btn {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            border: 1px solid var(--accent);
+            border-radius: 4px;
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        #simulator-body .sim-optimize-btn:hover {
+            background: var(--accent);
+            color: var(--bg-light);
+        }
+
+        #simulator-body .sim-optimize-before {
+            padding: 0.4rem 0.6rem;
+            background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        #simulator-body .sim-optimize-before code {
+            opacity: 0.7;
+            text-decoration: line-through;
+        }
+
+        #simulator-body .sim-optimize-after {
+            padding: 0.4rem 0.6rem;
+            background: color-mix(in srgb, var(--accent) 8%, transparent);
+            border-left: 2px solid var(--accent);
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        #simulator-body .sim-optimize-after code {
+            font-size: 0.82rem;
+            line-height: 1.5;
+        }
+
+        #simulator-body .sim-optimize-hidden {
+            opacity: 0;
+            transform: translateY(6px);
+            transition: opacity 0.35s ease, transform 0.35s ease;
+        }
+
+        #simulator-body .sim-optimize-hidden.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .simulator-layout {
+                grid-template-columns: 1fr;
             }
         }
