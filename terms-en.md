@@ -63,7 +63,7 @@ VAT: DE369692682
 
 3.1. **Pricing Tiers** (all prices inclusive of applicable taxes):
 
-- **Participant**: EUR 400 / USD 435 - Access to all recordings, materials, Custom GPT, NotebookLM, and technical support chat
+- **Participant**: EUR 400 / USD 470 - Access to all recordings, materials, Custom GPT, NotebookLM, and technical support chat
 - **Individual**: EUR 1,000 / USD 1,090 - All above plus 4 individual 60-minute consultations and priority chat support
 - **Team**: EUR 2,500 / USD 2,700 - For groups up to 7 people, includes dedicated chat and 4 team consultations
 

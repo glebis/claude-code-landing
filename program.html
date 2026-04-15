@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ru" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Программа — Онлайн-лаборатория Claude Code</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="icon" type="image/png" href="./favicon.png">
+    <meta property="og:title" content="Программа — Онлайн-лаборатория Claude Code">
+    <meta property="og:description" content="Детальная программа лаборатории: форматы встреч, задачи на коворкингах и недельный план.">
+    <meta property="og:url" content="https://claude-code.glebkalinin.com/program.html">
+    <meta property="og:image" content="./og_image.png">
+    <meta property="og:type" content="website">
+    <meta name="description" content="Детальная программа онлайн-лаборатории по Claude Code: форматы встреч, расписание, задачи на live-коворкингах.">
+    <meta name="theme-color" content="#ff6b35">
+</head>
+<body>
+    <div id="progress-bar" style="position: fixed; top: 0; left: 0; height: 5px; width: 0%; background-color: var(--accent); z-index: 1001;"></div>
+
+    <div class="theme-toggle-container">
+        <div class="theme-toggle" id="theme-toggle">
+            <div class="theme-toggle-thumb"><span class="theme-toggle-icon">☀️</span></div>
+        </div>
+        <div class="telegram-button-container">
+            <a class="telegram-button" href="https://t.me/m/Kr7m7YWyZDZi" target="_blank" rel="noopener noreferrer" aria-label="Написать в телеграм">
+                <svg class="telegram-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                    <path d="M9.964 15.568l-.246 3.463c.352 0 .505-.151.688-.333l1.651-1.588 3.418 2.51c.626.347 1.073.165 1.244-.58l2.254-10.556h.001c.2-.932-.337-1.296-.95-1.07L3.23 11.07c-.912.353-.898.861-.155 1.09l3.91 1.219 9.084-5.73c.427-.279.816-.125.496.154" fill="currentColor"/>
+                </svg>
+                <span>Написать в телеграм</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="container">
+        <section class="shader-hero">
+            <header class="header" style="text-align: left;">
+                <p class="tagline">Программа лаборатории<br><em>С 21 апреля → 8 недель</em><br>2 живые встречи + коворкинг</p>
+                <p class="tiny-navigation">
+                    <a href="./index.html">← на главную</a> &middot;
+                    <a href="#formats">форматы встреч</a> &middot;
+                    <a href="#cowork">коворкинги</a> &middot;
+                    <a href="#weeks">недели</a> &middot;
+                    <a href="./index.html#prices">цены</a>
+                </p>
+            </header>
+
+        <main class="main-content">
+
+            <!-- Intro -->
+            <section class="three-column-section">
+                <div class="column">
+                    <h3 class="column-title"><span class="highlight">Как устроена</span> неделя</h3>
+                </div>
+                <div class="column" style="grid-column: span 2;">
+                    <p style="font-size: 1.05rem; line-height: 1.6;">Каждая неделя — это <strong>две живые встречи в Zoom</strong> (вторник и суббота) плюс <strong>один коворкинг по средам</strong>. Между встречами — 3–5 часов самостоятельной работы над своим проектом, поддержка в чате Telegram, доступ ко всем материалам и записям.</p>
+                    <p style="font-size: 1.05rem; line-height: 1.6;">Все встречи веду я лично — Глеб Калинин. 20+ лет в IT, бывший CPO Ozon.travel, последние два года — преподавание агентных подходов и коучинг продактов и предпринимателей.</p>
+                </div>
+            </section>
+
+            <!-- Formats -->
+            <section class="three-column-section" id="formats">
+                <div class="column">
+                    <h3 class="column-title">Три <span class="highlight">формата</span></h3>
+                    <p class="column-text" style="font-size: 0.95rem;">Лаборатория сознательно избегает «лекционного» формата. Большая часть знаний приходит через практику и разбор реальных кейсов участников.</p>
+                </div>
+
+                <div class="column">
+                    <div style="border: 1px solid var(--border); padding: 1.2rem; border-radius: 4px; margin-bottom: 1.2rem;">
+                        <p style="margin-bottom: 0.3rem;"><strong class="highlight">Вторник 18:00 CET · 90 мин</strong></p>
+                        <p style="font-size: 0.85rem; opacity: 0.7; margin-bottom: 0.6rem;">Вечер знаний</p>
+                        <p style="font-size: 0.9rem;">Тема недели + демонстрации + разбор кейсов участников. Я показываю на экране, как решаю задачу, отвечаю на вопросы по ходу. Это не лекция — скорее парное программирование с группой.</p>
+                    </div>
+
+                    <div style="border: 1px solid var(--border); padding: 1.2rem; border-radius: 4px;">
+                        <p style="margin-bottom: 0.3rem;"><strong class="highlight">Суббота 10:00 CET · 90 мин</strong></p>
+                        <p style="font-size: 0.85rem; opacity: 0.7; margin-bottom: 0.6rem;">Практика и Q&amp;A</p>
+                        <p style="font-size: 0.9rem;">Live coding клиника: участники приносят свои задачи, мы решаем их в реальном времени. Это место, где «3 часа отлаживал — за 15 минут вместе разобрали».</p>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div style="border: 1px solid var(--accent); padding: 1.2rem; border-radius: 4px; background: color-mix(in srgb, var(--accent) 5%, transparent); margin-bottom: 1.2rem;">
+                        <p style="margin-bottom: 0.3rem;"><strong>Среда 09:00 CET · 3 × 25 мин</strong></p>
+                        <p style="font-size: 0.85rem; opacity: 0.7; margin-bottom: 0.6rem;">Коворкинг (опционально)</p>
+                        <p style="font-size: 0.9rem;">Три помодоро подряд с короткими перерывами. Включаешь камеру, объявляешь свою цель на 25 минут, работаешь в тишине. Между раундами — короткий обмен «что застряло». Лучшее средство против прокрастинации.</p>
+                    </div>
+
+                    <div style="border: 1px solid var(--border); padding: 1.2rem; border-radius: 4px;">
+                        <p style="margin-bottom: 0.3rem;"><strong>Telegram-чат · 24/7</strong></p>
+                        <p style="font-size: 0.9rem;">Я в чате каждый день. Ответы на вопросы, разбор скриншотов, ссылки на свежие практики. Чат остаётся доступным после окончания когорты.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cowork examples -->
+            <section class="three-column-section" id="cowork">
+                <div class="column">
+                    <h3 class="column-title">Что мы <span class="highlight">делаем</span> на live-сессиях</h3>
+                    <p class="column-text" style="font-size: 0.95rem;">Реальные задачи из прошлых когорт. Участники приходят со своими проектами, я не готовлю синтетические упражнения.</p>
+                </div>
+                <div class="column" style="grid-column: span 2;">
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                        <div style="border: 1px solid var(--border); padding: 1rem; border-radius: 4px;">
+                            <p><strong class="highlight">YouTube → research pipeline</strong></p>
+                            <p style="font-size: 0.88rem;">Скачать субтитры через yt-dlp, извлечь темы, параллельно отправить субагентов на исследование каждой. Финальный отчёт в Markdown.</p>
+                        </div>
+                        <div style="border: 1px solid var(--border); padding: 1rem; border-radius: 4px;">
+                            <p><strong class="highlight">KPI-калькулятор для отдела продаж</strong></p>
+                            <p style="font-size: 0.88rem;">Полноценное Next.js-приложение: синхронизация с PrintEffect API, расчёт бонусов, ролевые дашборды. Собрано за две сессии.</p>
+                        </div>
+                        <div style="border: 1px solid var(--border); padding: 1rem; border-radius: 4px;">
+                            <p><strong class="highlight">Telegram-бот на Claude Agent SDK</strong></p>
+                            <p style="font-size: 0.88rem;">Бот, который принимает голосовые, превращает их в задачи и кладёт в Notion. Полный цикл: SDK → деплой → подключение к чату.</p>
+                        </div>
+                        <div style="border: 1px solid var(--border); padding: 1rem; border-radius: 4px;">
+                            <p><strong class="highlight">Конкурентный анализ через Firecrawl</strong></p>
+                            <p style="font-size: 0.88rem;">Скрейпинг сайтов конкурентов, извлечение цен и фич, генерация сравнительной таблицы. Запускается по расписанию каждую неделю.</p>
+                        </div>
+                        <div style="border: 1px solid var(--border); padding: 1rem; border-radius: 4px;">
+                            <p><strong class="highlight">Создание собственного skill-а</strong></p>
+                            <p style="font-size: 0.88rem;">Упаковка повторяющегося рабочего процесса (например, генерация отчёта по клиенту) в переиспользуемый Claude Code skill с тестами.</p>
+                        </div>
+                        <div style="border: 1px solid var(--border); padding: 1rem; border-radius: 4px;">
+                            <p><strong class="highlight">Презентация из заметок Obsidian</strong></p>
+                            <p style="font-size: 0.88rem;">Markdown → Marp-слайды → PDF → озвучка через ElevenLabs → деплой на Vercel. Один промт — готовый артефакт.</p>
+                        </div>
+                        <div style="border: 1px solid var(--border); padding: 1rem; border-radius: 4px;">
+                            <p><strong class="highlight">Транскрипция и анализ встреч</strong></p>
+                            <p style="font-size: 0.88rem;">Подключение Fathom + локальный анализ: автоматическое извлечение решений, action items, цитат клиента в CRM.</p>
+                        </div>
+                        <div style="border: 1px solid var(--border); padding: 1rem; border-radius: 4px;">
+                            <p><strong class="highlight">Personal memory system</strong></p>
+                            <p style="font-size: 0.88rem;">Файловая память для агента: профиль, обратная связь, контекст проекта. Чтобы агент помнил вас от сессии к сессии.</p>
+                        </div>
+                        <div style="border: 1px solid var(--border); padding: 1rem; border-radius: 4px;">
+                            <p><strong class="highlight">MCP-сервер под свой инструмент</strong></p>
+                            <p style="font-size: 0.88rem;">Обёртка внутреннего API/базы в MCP-сервер, чтобы любой агент мог им пользоваться. От нуля до работающего сервера за встречу.</p>
+                        </div>
+                        <div style="border: 1px solid var(--border); padding: 1rem; border-radius: 4px;">
+                            <p><strong class="highlight">Hooks для автоматизации</strong></p>
+                            <p style="font-size: 0.88rem;">Pre/post-tool hooks: автокоммит, валидация, нотификации в Telegram. Превращают Claude Code из инструмента в настроенную среду.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Weeks -->
+            <section class="three-column-section" id="weeks">
+                <div class="column">
+                    <h3 class="column-title">План по <span class="highlight">неделям</span></h3>
+                </div>
+                <div class="column" style="grid-column: span 2;">
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+                        <div style="border: 1px solid var(--border); padding: 1rem; border-radius: 4px;">
+                            <p><strong class="highlight">Неделя 1</strong></p>
+                            <p style="font-size: 0.85rem; opacity: 0.8;">Вт 21.04 / Сб 25.04</p>
+                            <p><em>Введение в агентов</em></p>
+                            <ul style="font-size: 0.9rem; margin-top: 0.5rem; padding-left: 1.2rem;">
+                                <li>Что такое ИИ-агенты</li>
+                                <li>Установка Claude Code</li>
+                                <li>Основные команды и режимы</li>
+                                <li>Первые эксперименты</li>
+                            </ul>
+                        </div>
+                        <div style="border: 1px solid var(--border); padding: 1rem; border-radius: 4px;">
+                            <p><strong class="highlight">Неделя 2</strong></p>
+                            <p style="font-size: 0.85rem; opacity: 0.8;">Вт 12.05 / Сб 16.05</p>
+                            <p style="font-size: 0.75rem; opacity: 0.6;">перерыв на майские: 28.04–11.05</p>
+                            <p><em>Промтинг и контекст</em></p>
+                            <ul style="font-size: 0.9rem; margin-top: 0.5rem; padding-left: 1.2rem;">
+                                <li>Software 3.0</li>
+                                <li>Промт-инженерия для агентов</li>
+                                <li>Управление контекстом</li>
+                                <li>Context rot и решения</li>
+                            </ul>
+                        </div>
+                        <div style="border: 1px solid var(--border); padding: 1rem; border-radius: 4px;">
+                            <p><strong class="highlight">Неделя 3</strong></p>
+                            <p style="font-size: 0.85rem; opacity: 0.8;">Вт 19.05 / Сб 23.05</p>
+                            <p><em>Субагенты и исследования</em></p>
+                            <ul style="font-size: 0.9rem; margin-top: 0.5rem; padding-left: 1.2rem;">
+                                <li>Архитектура агентов</li>
+                                <li>Параллельная работа</li>
+                                <li>Research pipeline</li>
+                                <li>Работа с транскриптами</li>
+                            </ul>
+                        </div>
+                        <div style="border: 1px solid var(--border); padding: 1rem; border-radius: 4px;">
+                            <p><strong class="highlight">Неделя 4</strong></p>
+                            <p style="font-size: 0.85rem; opacity: 0.8;">Вт 26.05 / Сб 30.05</p>
+                            <p><em>MCP, Skills, Hooks</em></p>
+                            <ul style="font-size: 0.9rem; margin-top: 0.5rem; padding-left: 1.2rem;">
+                                <li>Model Context Protocol</li>
+                                <li>Создание навыков</li>
+                                <li>Автоматизация с хуками</li>
+                                <li>Интеграции и плагины</li>
+                            </ul>
+                        </div>
+                        <div style="border: 1px solid var(--border); padding: 1rem; border-radius: 4px;">
+                            <p><strong class="highlight">Неделя 5</strong></p>
+                            <p style="font-size: 0.85rem; opacity: 0.8;">Вт 02.06 / Сб 06.06</p>
+                            <p><em>Agent SDK и деплой</em></p>
+                            <ul style="font-size: 0.9rem; margin-top: 0.5rem; padding-left: 1.2rem;">
+                                <li>Claude Agent SDK</li>
+                                <li>Упаковка кастомных агентов</li>
+                                <li>Деплой в облако</li>
+                                <li>Лучшие практики</li>
+                            </ul>
+                        </div>
+                        <div style="border: 1px solid var(--border); padding: 1rem; border-radius: 4px; background: var(--accent); color: var(--bg-light);">
+                            <p><strong>Неделя 6</strong></p>
+                            <p style="font-size: 0.85rem; opacity: 0.8;">Вт 09.06 / Сб 13.06</p>
+                            <p><em style="color: var(--bg-light);">Практика и презентации</em></p>
+                            <ul style="font-size: 0.9rem; margin-top: 0.5rem; padding-left: 1.2rem;">
+                                <li>Вт: Q&amp;A и практика</li>
+                                <li>Сб: презентации проектов</li>
+                                <li>Разбор процессов</li>
+                                <li>Обратная связь</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="three-column-section">
+                <div class="column">
+                    <h3 class="column-title"><span class="highlight">Готовы</span>?</h3>
+                </div>
+                <div class="column" style="grid-column: span 2;">
+                    <p style="font-size: 1.05rem;">Если остались вопросы по программе — напишите мне в Telegram, отвечу лично.</p>
+                    <p style="margin-top: 1rem;">
+                        <a href="./index.html#prices" class="cta-button">Цены и запись</a>
+                    </p>
+                </div>
+            </section>
+
+        </main>
+        </section>
+    </div>
+</body>
+</html>
